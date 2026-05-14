@@ -13,7 +13,7 @@ const homes = [
   {
     title: '1 BHK Chalet',
     size: 'Compact',
-    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617651043776fe3b483237b5_Chalet_02.jpg',
+    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61765104b5b59f20914ca8f7_Chalet_03.jpg',
     desc: 'A single-bedroom prefabricated chalet built from steel — no digging, no disruption. Foyer, living, kitchen, dining, balcony, and a viewing deck that opens to the canopy.',
     features: ['Prefab steel construction', 'Viewing deck', 'Verandah & foyer', 'Minimal footprint'],
   },
@@ -120,7 +120,7 @@ export default function LostInTheWoodsPage() {
       </div>
 
       {/* ── HERO ── */}
-      <ParallaxHero src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61715726e203877b181cfc17_228A4051%201_Small_01.png" alt="Lost in the Woods">
+      <ParallaxHero src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617651043776fe3b483237b5_Chalet_02.jpg" alt="Lost in the Woods chalet">
         <div className="absolute inset-0 flex flex-col items-start justify-end px-8 md:px-20 pb-20">
           <motion.p className="text-whisper text-ivory-dim text-[0.55rem] tracking-ultra mb-5"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}>
