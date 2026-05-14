@@ -51,11 +51,11 @@ export default function LostInTheWoods() {
         </div>
       </HeroImage>
 
-      {/* ── TWO-COLUMN: pristine land + intro copy ── */}
+      {/* ── TWO-COLUMN: clubhouse + intro copy ── */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mt-2">
         <ParallaxImage
-          src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61715debca026fbefe8b70f2_Prestine%20Land_small.jpg"
-          alt="Pristine land"
+          src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6172619e13b09800ca2c1350_Clubhouse_with-signage.jpg"
+          alt="The Watering Hole clubhouse"
           height="70vh"
           delay={0}
           inView={inView}
@@ -81,15 +81,15 @@ export default function LostInTheWoods() {
       {/* ── SENSORY RAIL ── */}
       <SensoryRail words={sensoryWords} inView={inView} />
 
-      {/* ── FULL BLEED: under the canopy ── */}
+      {/* ── FULL BLEED: clubhouse interior ── */}
       <FullBleedImage
-        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6173e5524f9dce6f32eef7bd_Under%20The%20Canopy.jpg"
-        alt="Under the canopy"
+        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61726241e239c92636c8c511_clubhouse-01-p-1600.jpeg"
+        alt="Clubhouse interior"
         height="80vh"
         inView={inView}>
         <CenteredQuote
-          eyebrow="THE PHILOSOPHY"
-          body="Change is elemental. Away from concrete jungles and unnatural neighbourhoods — toward the land."
+          eyebrow="THE WATERING HOLE"
+          body="A clubhouse that belongs to the forest. Built from the ground up without clearing a single tree."
           inView={inView}
         />
       </FullBleedImage>
@@ -98,36 +98,36 @@ export default function LostInTheWoods() {
       <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-2">
         <div className="md:col-span-2">
           <ParallaxImage
-            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617651043776fe3b483237b5_Chalet_02.jpg"
-            alt="Chalet"
+            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61765104b5b59f20914ca8f7_Chalet_03.jpg"
+            alt="Chalet 03"
             height="75vh"
             inView={inView}
             delay={0}>
             <div className="absolute bottom-8 left-8">
-              <p className="text-whisper text-ivory-dim text-[0.55rem] tracking-widest mb-1">PREFAB STEEL — CHALET TYPE</p>
+              <p className="text-whisper text-ivory-dim text-[0.55rem] tracking-widest mb-1">PREFAB STEEL — DELIVERED</p>
               <p className="font-serif text-ivory text-xl font-light italic">No dig. No disruption. Just forest.</p>
             </div>
           </ParallaxImage>
         </div>
         <div className="flex flex-col gap-2">
           <ParallaxImage
-            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6174fc89d355d921c7e90790_The%20Mist.jpg"
-            alt="The Mist"
+            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/64255cfba0534b49a9381797_LITW-Progress_March00001.webp"
+            alt="Site progress"
             height="36.5vh"
             inView={inView}
             delay={0.1}>
             <div className="absolute bottom-5 left-6">
-              <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">1030M — THE MIST</p>
+              <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">ON SITE — NOW DELIVERED</p>
             </div>
           </ParallaxImage>
           <ParallaxImage
-            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6172619e13b09822e82c137f_Unit-B.jpg"
-            alt="Unit B"
+            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617530de1733a6b851dfa241_Fish%20Pond.png"
+            alt="Fish pond amenity"
             height="36.5vh"
             inView={inView}
             delay={0.2}>
             <div className="absolute bottom-5 left-6">
-              <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">UNIT B — 2 BHK</p>
+              <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">FISH POND — 35+ AMENITIES</p>
             </div>
           </ParallaxImage>
         </div>
