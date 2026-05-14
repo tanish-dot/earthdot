@@ -13,8 +13,16 @@ export default function HeroScene({ ready }) {
           transition={{ duration: 2.2, ease: 'easeOut' }}
         />
 
-        {/* ── Video background ── */}
+        {/* ── Hero background: video over static fallback ── */}
         <div className="absolute inset-0 z-[5]">
+          {/* Static image fallback — always visible until video loads */}
+          <img
+            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61715726e203877b181cfc17_228A4051%201_Small_01.png"
+            alt="Lost in the Woods aerial"
+            className="absolute inset-0 w-full h-full object-cover"
+            decoding="async"
+          />
+          {/* Video sits on top and covers the image once it loads */}
           <video
             src="/video.mp4"
             autoPlay

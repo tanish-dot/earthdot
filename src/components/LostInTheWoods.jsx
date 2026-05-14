@@ -38,8 +38,8 @@ export default function LostInTheWoods() {
 
       {/* ── HERO IMAGE ── */}
       <HeroImage
-        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61715726e203877b181cfc17_228A4051%201_Small_01.png"
-        alt="Lost in the Woods aerial"
+        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61713cb56c293917b729cb08_Gate-render_litw-logo.jpg"
+        alt="Lost in the Woods gate"
         inView={inView}
         overlay="linear-gradient(to bottom, rgba(8,8,8,0.15) 0%, rgba(8,8,8,0) 40%, rgba(8,8,8,0.8) 100%)"
         height="90vh">
