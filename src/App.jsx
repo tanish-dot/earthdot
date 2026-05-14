@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, lazy, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
 import { gsap } from 'gsap'
@@ -16,10 +16,10 @@ import LostInTheWoods from './components/LostInTheWoods'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import Particles from './components/Particles'
-import HummingGrovePage from './pages/HummingGrovePage'
-import SoulSpringsPage from './pages/SoulSpringsPage'
-import ContactPage from './pages/ContactPage'
-import LostInTheWoodsPage from './pages/LostInTheWoodsPage'
+const HummingGrovePage = lazy(() => import('./pages/HummingGrovePage'))
+const SoulSpringsPage = lazy(() => import('./pages/SoulSpringsPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+const LostInTheWoodsPage = lazy(() => import('./pages/LostInTheWoodsPage'))
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -94,13 +94,15 @@ export default function App() {
     <>
       <Particles />
 <Cursor />
-      <Routes>
-        <Route path="/" element={<HomePage loaded={loaded} setLoaded={setLoaded} />} />
-        <Route path="/lost-in-the-woods" element={<LostInTheWoodsPage />} />
-        <Route path="/humming-grove" element={<HummingGrovePage />} />
-        <Route path="/soul-springs" element={<SoulSpringsPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<HomePage loaded={loaded} setLoaded={setLoaded} />} />
+          <Route path="/lost-in-the-woods" element={<LostInTheWoodsPage />} />
+          <Route path="/humming-grove" element={<HummingGrovePage />} />
+          <Route path="/soul-springs" element={<SoulSpringsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </Suspense>
     </>
   )
 }

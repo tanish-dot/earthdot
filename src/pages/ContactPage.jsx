@@ -64,6 +64,7 @@ export default function ContactPage() {
 
   const handleSubmit = async e => {
     e.preventDefault()
+    if (!supabase) { setStatus('error'); return }
     setStatus('sending')
     const { error } = await supabase.from('enquiries').insert([{
       name: form.name,
