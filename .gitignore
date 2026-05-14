@@ -5,4 +5,3 @@ dist
 .DS_Store
 .claude
 *.ppm
-public/video.mp4
