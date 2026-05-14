@@ -52,7 +52,7 @@ export default function HeroScene({ ready }) {
             A NATURE-LED LIVING UNIVERSE
           </p>
           <p className="font-serif text-ivory text-xl md:text-2xl font-light italic">
-            Live surrounded by flora and fauna.
+            Where Land Leads,<br />Life Follows.
           </p>
         </motion.div>
 
