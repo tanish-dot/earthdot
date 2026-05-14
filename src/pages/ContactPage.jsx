@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { supabase } from '../lib/supabase'
 
 // ── Data sourced from the chapters ──────────────────────────────────────────
@@ -39,11 +39,11 @@ const chapters = [
 
 
 function Section({ children, className = '' }) {
-  const ref = useRef()
-  const inView = useInView(ref, { once: true, margin: '-10%' })
   return (
-    <motion.div ref={ref} className={className}
-      initial={{ opacity: 0, y: 36 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 36 }}
+    <motion.div className={className}
+      initial={{ opacity: 0, y: 36 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '0px' }}
       transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}>
       {children}
     </motion.div>
