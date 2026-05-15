@@ -310,9 +310,9 @@ export default function SoulSpringsPage() {
             </p>
           </Section>
           <Section className="flex flex-col gap-5">
-            <a href="mailto:hello@theearthproject.in"
+            <a href="mailto:Tepindiaofficial@gmail.com"
               className="font-serif text-ivory text-2xl md:text-3xl font-light hover:text-ivory-dim transition-colors duration-500">
-              hello@theearthproject.in
+              Tepindiaofficial@gmail.com
             </a>
             <div className="flex items-center gap-3">
               <div className="w-8 h-[1px] bg-muted-olive" />

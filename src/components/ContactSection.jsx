@@ -102,10 +102,10 @@ export default function ContactSection() {
           <div className="flex flex-col gap-2">
             <p className="text-whisper text-stone-grey text-[0.6rem] tracking-widest">ENQUIRE</p>
             <a
-              href="mailto:hello@theearthproject.in"
+              href="mailto:Tepindiaofficial@gmail.com"
               className="font-serif text-ivory text-2xl md:text-3xl font-light hover:text-ivory-dim transition-colors duration-500"
             >
-              hello@theearthproject.in
+              Tepindiaofficial@gmail.com
             </a>
           </div>
           <div className="flex flex-col gap-2">
