@@ -111,10 +111,16 @@ export default function ContactSection() {
           <div className="flex flex-col gap-2">
             <p className="text-whisper text-stone-grey text-[0.6rem] tracking-widest">FOLLOW</p>
             <div className="flex items-center gap-8">
-              {['Instagram', 'LinkedIn'].map(s => (
-                <span key={s} className="font-serif text-stone-grey text-sm font-light hover:text-ivory transition-colors duration-500 cursor-pointer">
-                  {s}
-                </span>
+              {[
+                { label: 'Instagram', href: 'https://www.instagram.com/the.earthproject_/' },
+                { label: 'LinkedIn', href: 'https://www.linkedin.com/company/theearthproject/' },
+                { label: 'YouTube', href: 'https://www.youtube.com/@the_earthproject' },
+                { label: 'Reddit', href: 'https://www.reddit.com/r/theearth_project' },
+              ].map(s => (
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                  className="font-serif text-stone-grey text-sm font-light hover:text-ivory transition-colors duration-500">
+                  {s.label}
+                </a>
               ))}
             </div>
           </div>
