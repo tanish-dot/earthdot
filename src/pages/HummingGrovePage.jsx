@@ -91,7 +91,7 @@ export default function HummingGrovePage() {
     <div className="bg-void min-h-screen">
 
       {/* ── Back nav ── */}
-      <div className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-8 md:px-16 py-7"
+      <div className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-5 md:px-16 py-5 md:py-7"
         style={{ background: 'linear-gradient(to bottom, rgba(8,8,8,0.9), transparent)' }}>
         <Link to="/" className="flex items-center gap-3 group">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -105,12 +105,12 @@ export default function HummingGrovePage() {
 
       {/* ── HERO ── */}
       <ParallaxHero src="/images/hg/hg-102.jpg" alt="The Humming Grove">
-        <div className="absolute inset-0 flex flex-col items-start justify-end px-8 md:px-20 pb-20">
+        <div className="absolute inset-0 flex flex-col items-start justify-end px-5 md:px-20 pb-10 md:pb-20">
           <motion.p className="text-whisper text-ivory-dim text-[0.55rem] tracking-ultra mb-5"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}>
             CHAPTER II — UPCOMING
           </motion.p>
-          <motion.h1 className="text-display text-ivory" style={{ fontSize: 'clamp(4rem, 12vw, 11rem)', lineHeight: 0.84 }}
+          <motion.h1 className="text-display text-ivory" style={{ fontSize: 'clamp(2.8rem, 10vw, 11rem)', lineHeight: 0.84 }}
             initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.4, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}>
             THE<br />HUMMING<br />GROVE
           </motion.h1>
@@ -135,7 +135,7 @@ export default function HummingGrovePage() {
       </Section>
 
       {/* ── OVERVIEW ── */}
-      <div className="max-w-7xl mx-auto px-8 md:px-20 py-28 grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 py-14 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
         <Section>
           <p className="text-whisper text-forest-glow text-[0.55rem] tracking-ultra mb-8">THE PROJECT</p>
           <h2 className="text-display text-ivory mb-8" style={{ fontSize: 'clamp(2.2rem, 5vw, 4.5rem)', lineHeight: 0.9 }}>
@@ -161,7 +161,7 @@ export default function HummingGrovePage() {
       </div>
 
       {/* ── FULL BLEED IMAGE ── */}
-      <div className="relative overflow-hidden mx-2" style={{ height: '75vh' }}>
+      <div className="relative overflow-hidden mx-0 md:mx-2" style={{ height: 'clamp(280px, 50vw, 75vh)' }}>
         <img src="/images/hg/hg-009.jpg" alt="Valley at Ananthagiri Hills"
           className="absolute inset-x-0 w-full h-full object-cover" style={{ top: 0 }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(8,8,8,0.6) 0%, transparent 50%, rgba(8,8,8,0.2) 100%)' }} />
@@ -174,7 +174,7 @@ export default function HummingGrovePage() {
       </div>
 
       {/* ── LOCATION & CONTEXT ── */}
-      <div className="max-w-7xl mx-auto px-8 md:px-20 py-24">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 py-12 md:py-24">
         <Section className="mb-16">
           <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-6">LOCATION</p>
           <h2 className="text-display text-ivory" style={{ fontSize: 'clamp(2rem, 4vw, 3.8rem)', lineHeight: 0.9 }}>
@@ -255,8 +255,8 @@ export default function HummingGrovePage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-8 md:px-20 py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-12">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 py-12 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 md:gap-x-16 gap-y-8 md:gap-y-12">
           {designPillars.map((p, i) => (
             <Section key={p.label} className="flex flex-col gap-4 border-t border-stone pt-8">
               <div className="flex items-center gap-3">
@@ -271,13 +271,13 @@ export default function HummingGrovePage() {
 
       {/* ── MASTER PLAN ── */}
       <div className="border-t border-stone">
-        <div className="max-w-7xl mx-auto px-8 md:px-20 py-16">
+        <div className="max-w-7xl mx-auto px-5 md:px-20 py-10 md:py-16">
           <Section className="mb-12">
             <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-4">MASTER PLAN</p>
             <h2 className="text-display text-ivory" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 0.9 }}>Community layout</h2>
           </Section>
         </div>
-        <div className="relative overflow-hidden mx-2" style={{ height: '65vh' }}>
+        <div className="relative overflow-hidden mx-0 md:mx-2" style={{ height: 'clamp(260px, 45vw, 65vh)' }}>
           <img src="/images/hg/hg-070.jpg" alt="Aerial view of The Humming Grove"
             className="absolute inset-0 w-full h-full object-cover object-center" />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(8,8,8,0.6) 0%, transparent 40%)' }} />
@@ -288,7 +288,7 @@ export default function HummingGrovePage() {
       </div>
 
       {/* ── AMENITIES ── */}
-      <div className="max-w-7xl mx-auto px-8 md:px-20 py-24">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 py-12 md:py-24">
         <Section className="mb-16">
           <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-6">WITHIN THE COMMUNITY</p>
           <h2 className="text-display text-ivory" style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5rem)', lineHeight: 0.88 }}>
@@ -333,7 +333,7 @@ export default function HummingGrovePage() {
       </div>
 
       {/* ── FOREST LIFE IMAGE ── */}
-      <div className="grid grid-cols-3 gap-2 mx-2 mb-2">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mx-2 mb-2">
         {[
           { src: '/images/hg/hg-163.jpg', label: 'MONSOON MORNINGS' },
           { src: '/images/hg/hg-002.jpg', label: 'FILTERED LIGHT' },
@@ -350,7 +350,7 @@ export default function HummingGrovePage() {
       </div>
 
       {/* ── ENQUIRE CTA ── */}
-      <div className="max-w-7xl mx-auto px-8 md:px-20 py-24 border-t border-stone">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 py-12 md:py-24 border-t border-stone">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-12">
           <Section>
             <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-6">BEGIN YOUR CHAPTER</p>
@@ -375,7 +375,7 @@ export default function HummingGrovePage() {
       </div>
 
       {/* ── FOOTER NAV ── */}
-      <div className="border-t border-stone px-8 md:px-20 py-10 flex items-center justify-between">
+      <div className="border-t border-stone px-5 md:px-20 py-8 md:py-10 flex items-center justify-between">
         <Link to="/" className="text-whisper text-stone-grey text-[0.5rem] tracking-ultra hover:text-ivory transition-colors duration-500">
           ← BACK TO HOME
         </Link>

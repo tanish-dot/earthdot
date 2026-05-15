@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 
 export default function HeroScene({ ready }) {
   return (
-    <section style={{ height: '100vh' }} className="relative">
-      <div className="w-full h-screen overflow-hidden bg-void">
+    <section style={{ height: '100svh' }} className="relative">
+      <div className="w-full overflow-hidden bg-void" style={{ height: '100svh' }}>
 
         {/* Preloader cover */}
         <motion.div
@@ -43,7 +43,7 @@ export default function HeroScene({ ready }) {
 
         {/* ── Eyebrow ── */}
         <motion.div
-          className="absolute bottom-14 left-8 md:left-16 z-[25] pointer-events-none"
+          className="absolute bottom-8 md:bottom-14 left-6 md:left-16 z-[25] pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: ready ? 1 : 0 }}
           transition={{ duration: 1.5, delay: 1.8, ease: 'easeOut' }}
@@ -51,7 +51,7 @@ export default function HeroScene({ ready }) {
           <p className="text-whisper text-ivory/45 text-[0.5rem] tracking-ultra mb-3">
             A NATURE-LED LIVING UNIVERSE
           </p>
-          <p className="font-serif text-ivory text-xl md:text-2xl font-light italic">
+          <p className="font-serif text-ivory text-lg md:text-2xl font-light italic">
             Where Land Leads,<br />Life Follows.
           </p>
         </motion.div>
@@ -69,7 +69,7 @@ export default function HeroScene({ ready }) {
 
         {/* ── Scroll cue ── */}
         <motion.div
-          className="absolute bottom-10 right-8 md:right-16 z-[25] flex flex-col items-center gap-2 pointer-events-none"
+          className="absolute bottom-8 right-6 md:right-16 z-[25] flex flex-col items-center gap-2 pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: ready ? 1 : 0 }}
           transition={{ duration: 1, delay: 2.2 }}

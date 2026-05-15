@@ -163,7 +163,7 @@ export default function ContactPage() {
 
                 <p className="font-serif text-stone-grey text-sm font-light italic mt-4 mb-6">{c.tagline}</p>
 
-                <div className="flex flex-wrap gap-x-8 gap-y-2 pt-6 border-t border-stone/20">
+                <div className="flex flex-wrap gap-x-4 md:gap-x-8 gap-y-2 pt-6 border-t border-stone/20">
                   {c.stats.map(s => (
                     <span key={s} className="text-whisper text-ivory/35 text-[0.48rem] tracking-widest">{s}</span>
                   ))}
@@ -176,7 +176,7 @@ export default function ContactPage() {
       </div>
 
       {/* ── Two-column: form + details ── */}
-      <div className="max-w-7xl mx-auto px-8 md:px-16 py-28 grid grid-cols-1 md:grid-cols-2 gap-24">
+      <div className="max-w-7xl mx-auto px-5 md:px-16 py-14 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-24">
 
         {/* ── Enquiry form ── */}
         <Section>
@@ -197,7 +197,7 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-7">
 
               {/* Name + Phone row */}
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
                   { name: 'name', label: 'FULL NAME', type: 'text', required: true },
                   { name: 'phone', label: 'PHONE NUMBER', type: 'tel', required: false },
@@ -218,7 +218,7 @@ export default function ContactPage() {
               </div>
 
               {/* Chapter + Type row */}
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="text-whisper text-stone-grey text-[0.48rem] tracking-widest">CHAPTER OF INTEREST</label>
                   <select name="chapter" value={form.chapter} onChange={handleChange}
@@ -327,7 +327,7 @@ export default function ContactPage() {
       </div>
 
       {/* ── Footer nav ── */}
-      <div className="border-t border-stone/20 mx-8 md:mx-16 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="border-t border-stone/20 mx-5 md:mx-16 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <span className="text-whisper text-stone-grey text-[0.5rem] tracking-ultra">THE EARTH PROJECT © 2025</span>
         <div className="flex items-center gap-10">
           <Link to="/lost-in-the-woods" className="text-whisper text-stone-grey hover:text-ivory transition-colors duration-500 text-[0.55rem] tracking-widest">LOST IN THE WOODS</Link>

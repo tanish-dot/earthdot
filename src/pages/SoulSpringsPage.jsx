@@ -74,7 +74,7 @@ export default function SoulSpringsPage() {
     <div className="bg-void min-h-screen">
 
       {/* ── Back nav ── */}
-      <div className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-8 md:px-16 py-7"
+      <div className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-5 md:px-16 py-5 md:py-7"
         style={{ background: 'linear-gradient(to bottom, rgba(8,8,8,0.9), transparent)' }}>
         <Link to="/" className="flex items-center gap-3 group">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -91,12 +91,12 @@ export default function SoulSpringsPage() {
         <img src="/images/ss/ss-006.jpg" alt="Soul Springs"
           className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(8,8,8,0.5) 0%, rgba(8,8,8,0.2) 40%, rgba(8,8,8,0.75) 100%)' }} />
-        <div className="absolute inset-0 flex flex-col items-start justify-end px-8 md:px-20 pb-20">
+        <div className="absolute inset-0 flex flex-col items-start justify-end px-5 md:px-20 pb-10 md:pb-20">
           <motion.p className="text-whisper text-ivory-dim text-[0.55rem] tracking-ultra mb-5"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}>
             CHAPTER III — COMING SOON
           </motion.p>
-          <motion.h1 className="text-display text-ivory" style={{ fontSize: 'clamp(4rem, 12vw, 11rem)', lineHeight: 0.84 }}
+          <motion.h1 className="text-display text-ivory" style={{ fontSize: 'clamp(2.8rem, 10vw, 11rem)', lineHeight: 0.84 }}
             initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.4, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}>
             SOUL<br />SPRINGS
           </motion.h1>
@@ -121,7 +121,7 @@ export default function SoulSpringsPage() {
       </Section>
 
       {/* ── OVERVIEW ── */}
-      <div className="max-w-7xl mx-auto px-8 md:px-20 py-28 grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 py-14 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
         <Section>
           <p className="text-whisper text-muted-olive text-[0.55rem] tracking-ultra mb-8">THE PROJECT</p>
           <h2 className="text-display text-ivory mb-8" style={{ fontSize: 'clamp(2.2rem, 5vw, 4.5rem)', lineHeight: 0.9 }}>
@@ -147,7 +147,7 @@ export default function SoulSpringsPage() {
       </div>
 
       {/* ── FULL BLEED WATER ── */}
-      <div className="relative overflow-hidden mx-2" style={{ height: '72vh' }}>
+      <div className="relative overflow-hidden mx-0 md:mx-2" style={{ height: 'clamp(280px, 50vw, 72vh)' }}>
         <img src="/images/ss/ss-000.jpg" alt="Natural spring water"
           className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(8,8,8,0.55) 0%, transparent 55%)' }} />
@@ -160,14 +160,14 @@ export default function SoulSpringsPage() {
       </div>
 
       {/* ── LAND FEATURES ── */}
-      <div className="max-w-7xl mx-auto px-8 md:px-20 py-24">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 py-12 md:py-24">
         <Section className="mb-16">
           <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-6">THE LAND</p>
           <h2 className="text-display text-ivory" style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5rem)', lineHeight: 0.88 }}>
             57 acres of<br /><em className="text-ivory-dim">living geography</em>
           </h2>
         </Section>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 md:gap-x-16 gap-y-8 md:gap-y-12">
           {landFeatures.map(f => (
             <Section key={f.label} className="flex flex-col gap-4 border-t border-stone pt-8">
               <div className="flex items-center gap-3">
@@ -182,7 +182,7 @@ export default function SoulSpringsPage() {
 
       {/* ── LOCATION ── */}
       <div className="border-t border-stone">
-        <div className="max-w-7xl mx-auto px-8 md:px-20 py-24">
+        <div className="max-w-7xl mx-auto px-5 md:px-20 py-12 md:py-24">
           <Section className="mb-16">
             <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-6">LOCATION</p>
             <h2 className="text-display text-ivory" style={{ fontSize: 'clamp(2rem, 4vw, 3.8rem)', lineHeight: 0.9 }}>
@@ -244,7 +244,7 @@ export default function SoulSpringsPage() {
       </div>
 
       {/* ── NATURE GALLERY ── */}
-      <div className="grid grid-cols-3 gap-2 mx-2 mb-2">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mx-2 mb-2">
         {[
           { src: '/images/ss/ss-009.jpg', label: 'ENDEMIC WILDLIFE' },
           { src: '/images/ss/ss-037.jpg', label: 'THE SPRING CORRIDOR' },
@@ -261,7 +261,7 @@ export default function SoulSpringsPage() {
       </div>
 
       {/* ── AMENITIES ── */}
-      <div className="max-w-7xl mx-auto px-8 md:px-20 py-24">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 py-12 md:py-24">
         <Section className="mb-16">
           <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-6">COMMUNITY AMENITIES</p>
           <h2 className="text-display text-ivory" style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5rem)', lineHeight: 0.88 }}>
@@ -284,7 +284,7 @@ export default function SoulSpringsPage() {
       </div>
 
       {/* ── CLOSING IMAGE ── */}
-      <div className="relative overflow-hidden mx-2 mb-2" style={{ height: '65vh' }}>
+      <div className="relative overflow-hidden mx-0 md:mx-2 mb-2" style={{ height: 'clamp(260px, 45vw, 65vh)' }}>
         <img src="/images/ss/ss-002.jpg" alt="Soul Springs valley"
           className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0" style={{ background: 'rgba(8,8,8,0.45)' }} />
@@ -298,7 +298,7 @@ export default function SoulSpringsPage() {
       </div>
 
       {/* ── ENQUIRE CTA ── */}
-      <div className="max-w-7xl mx-auto px-8 md:px-20 py-24 border-t border-stone">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 py-12 md:py-24 border-t border-stone">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-12">
           <Section>
             <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-6">BEGIN YOUR CHAPTER</p>
@@ -323,7 +323,7 @@ export default function SoulSpringsPage() {
       </div>
 
       {/* ── FOOTER NAV ── */}
-      <div className="border-t border-stone px-8 md:px-20 py-10 flex items-center justify-between">
+      <div className="border-t border-stone px-5 md:px-20 py-8 md:py-10 flex items-center justify-between">
         <Link to="/humming-grove" className="text-whisper text-stone-grey text-[0.5rem] tracking-ultra hover:text-ivory transition-colors duration-500">
           ← CHAPTER I: THE HUMMING GROVE
         </Link>

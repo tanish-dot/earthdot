@@ -12,7 +12,7 @@ export default function LostInTheWoods() {
     <section id="lost-in-the-woods" ref={sectionRef} className="relative bg-void overflow-hidden">
 
       {/* ── CHAPTER MARKER ── */}
-      <div className="flex items-center justify-center pt-32 pb-16 px-8">
+      <div className="flex items-center justify-center pt-16 md:pt-32 pb-10 md:pb-16 px-8">
         <motion.div className="flex items-center gap-6"
           initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ duration: 1 }}>
           <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-forest-glow opacity-50" />
@@ -22,9 +22,9 @@ export default function LostInTheWoods() {
       </div>
 
       {/* ── TITLE ── */}
-      <div className="px-8 md:px-16 pb-12 max-w-7xl mx-auto">
+      <div className="px-5 md:px-16 pb-10 md:pb-12 max-w-7xl mx-auto">
         <motion.h2 className="text-display text-ivory"
-          style={{ fontSize: 'clamp(3.2rem, 9vw, 8rem)', lineHeight: 0.84 }}
+          style={{ fontSize: 'clamp(2.8rem, 9vw, 8rem)', lineHeight: 0.84 }}
           initial={{ opacity: 0, y: 80 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 80 }}
           transition={{ duration: 1.6, ease: [0.76, 0, 0.24, 1] }}>
           LOST IN<br />THE WOODS
@@ -43,9 +43,9 @@ export default function LostInTheWoods() {
         inView={inView}
         overlay="linear-gradient(to bottom, rgba(8,8,8,0.15) 0%, rgba(8,8,8,0) 40%, rgba(8,8,8,0.8) 100%)"
         height="90vh">
-        <div className="absolute bottom-12 left-8 md:left-16 max-w-sm">
+        <div className="absolute bottom-8 md:bottom-12 left-5 md:left-16 max-w-[85vw] md:max-w-sm">
           <p className="text-whisper text-ivory-dim tracking-widest mb-3 text-[0.55rem]">SAKLESHPUR — NILGIRI BIOSPHERE RESERVE</p>
-          <p className="font-serif text-ivory text-2xl font-light italic leading-snug">
+          <p className="font-serif text-ivory text-lg md:text-2xl font-light italic leading-snug">
             "36.68 acres of Western Ghats forest. Entered carefully. Never cleared."
           </p>
         </div>
@@ -56,11 +56,11 @@ export default function LostInTheWoods() {
         <ParallaxImage
           src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6172619e13b09800ca2c1350_Clubhouse_with-signage.jpg"
           alt="The Watering Hole clubhouse"
-          height="70vh"
+          height="55vh"
           delay={0}
           inView={inView}
         />
-        <div className="flex flex-col justify-center px-10 md:px-16 py-16 bg-void gap-10">
+        <div className="flex flex-col justify-center px-5 md:px-16 py-10 md:py-16 bg-void gap-8 md:gap-10">
           <motion.p className="text-whisper text-forest-glow tracking-ultra text-[0.55rem]"
             initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ delay: 0.3, duration: 0.8 }}>
             SAKLESHPUR — KARNATAKA
@@ -134,8 +134,8 @@ export default function LostInTheWoods() {
       </div>
 
       {/* ── COPY BLOCK ── */}
-      <div className="px-8 md:px-16 py-24 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div className="px-5 md:px-16 py-14 md:py-24 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <motion.div className="flex flex-col gap-8"
             initial={{ opacity: 0, x: -40 }} animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -40 }}
             transition={{ duration: 1.2, delay: 0.2 }}>
@@ -279,7 +279,7 @@ function SensoryRail({ words, inView }) {
 
 function StatRow({ items, inView }) {
   return (
-    <div className="flex items-center gap-10 pt-6 border-t border-stone">
+    <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-6 border-t border-stone">
       {items.map((s, i) => (
         <motion.div key={s.l} className="flex flex-col gap-1"
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}

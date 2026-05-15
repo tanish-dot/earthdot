@@ -9,7 +9,7 @@ function ChapterCard({ num, title, location, status, to, img, side = 'left' }) {
     <Link
       to={to}
       className="relative overflow-hidden flex flex-col justify-between group"
-      style={{ minHeight: '85vh' }}
+      style={{ minHeight: 'clamp(400px, 85vh, 900px)' }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -38,7 +38,7 @@ function ChapterCard({ num, title, location, status, to, img, side = 'left' }) {
       <div className="absolute inset-0 border border-stone/30" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-between h-full p-10 md:p-14">
+      <div className="relative z-10 flex flex-col justify-between h-full p-6 md:p-14">
 
         {/* Top row */}
         <div className="flex items-start justify-between">
@@ -57,7 +57,7 @@ function ChapterCard({ num, title, location, status, to, img, side = 'left' }) {
         {/* Big Roman numeral */}
         <motion.p
           className="text-display text-ivory/10 select-none"
-          style={{ fontSize: 'clamp(8rem, 22vw, 26rem)', lineHeight: 0.8, letterSpacing: '-0.05em' }}
+          style={{ fontSize: 'clamp(5rem, 18vw, 26rem)', lineHeight: 0.8, letterSpacing: '-0.05em' }}
           animate={{ opacity: hovered ? 0.06 : 0.12 }}
           transition={{ duration: 0.5 }}
         >
@@ -109,7 +109,7 @@ export default function ChaptersIntro() {
     <section id="chapters" ref={ref} className="relative bg-void">
 
       {/* Header */}
-      <div className="px-6 md:px-12 pt-24 pb-10 flex items-center justify-between border-b border-stone/15">
+      <div className="px-5 md:px-12 pt-16 md:pt-24 pb-8 md:pb-10 flex items-center justify-between border-b border-stone/15">
         <motion.p
           className="text-whisper text-stone/50 text-[0.52rem] tracking-ultra"
           initial={{ opacity: 0 }}

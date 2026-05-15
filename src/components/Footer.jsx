@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <footer className="relative bg-void border-t border-stone px-8 md:px-16 py-16">
+    <footer className="relative bg-void border-t border-stone px-5 md:px-16 py-10 md:py-16">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
         {/* Logo */}
         <div className="flex items-center">
@@ -23,7 +23,7 @@ export default function Footer() {
       </div>
 
       {/* Sound toggle placeholder — wired for future ambient audio */}
-      <div className="absolute bottom-4 right-8 flex items-center gap-2 opacity-30 hover:opacity-70 transition-opacity cursor-pointer" id="sound-toggle">
+      <div className="absolute bottom-4 right-5 md:right-8 flex items-center gap-2 opacity-30 hover:opacity-70 transition-opacity cursor-pointer" id="sound-toggle">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M3 5H1v4h2l3 3V2L3 5z" stroke="#c8c0b0" strokeWidth="0.8" fill="none"/>
           <path d="M9 4.5c1.1 0.7 1.8 1.9 1.8 3.2s-0.7 2.5-1.8 3.2" stroke="#c8c0b0" strokeWidth="0.8" fill="none"/>

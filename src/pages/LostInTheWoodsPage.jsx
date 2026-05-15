@@ -121,12 +121,12 @@ export default function LostInTheWoodsPage() {
 
       {/* ── HERO ── */}
       <ParallaxHero src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617651043776fe3b483237b5_Chalet_02.jpg" alt="Lost in the Woods chalet">
-        <div className="absolute inset-0 flex flex-col items-start justify-end px-8 md:px-20 pb-20">
+        <div className="absolute inset-0 flex flex-col items-start justify-end px-5 md:px-20 pb-10 md:pb-20">
           <motion.p className="text-whisper text-ivory-dim text-[0.55rem] tracking-ultra mb-5"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}>
             CHAPTER I — DELIVERED
           </motion.p>
-          <motion.h1 className="text-display text-ivory" style={{ fontSize: 'clamp(4rem, 12vw, 11rem)', lineHeight: 0.84 }}
+          <motion.h1 className="text-display text-ivory" style={{ fontSize: 'clamp(2.8rem, 10vw, 11rem)', lineHeight: 0.84 }}
             initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.4, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}>
             LOST IN<br />THE WOODS
           </motion.h1>
@@ -151,7 +151,7 @@ export default function LostInTheWoodsPage() {
       </Section>
 
       {/* ── OVERVIEW ── */}
-      <div ref={sectionRef} className="max-w-7xl mx-auto px-8 md:px-20 py-28 grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+      <div ref={sectionRef} className="max-w-7xl mx-auto px-5 md:px-20 py-14 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
         <Section>
           <p className="text-whisper text-forest-glow tracking-ultra text-[0.55rem] mb-6">SAKLESHPUR — NILGIRI BIOSPHERE RESERVE</p>
           <p className="font-serif text-ivory text-2xl md:text-3xl font-light leading-relaxed">
@@ -189,7 +189,7 @@ export default function LostInTheWoodsPage() {
       </div>
 
       {/* ── LAND LAYERS ── */}
-      <div className="max-w-7xl mx-auto px-8 md:px-20 py-28">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 py-14 md:py-28">
         <Section className="mb-16">
           <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-4">THE LAND</p>
           <h2 className="font-serif text-ivory font-light" style={{ fontSize: 'clamp(2rem, 4vw, 4rem)', lineHeight: 1, letterSpacing: '-0.02em' }}>
@@ -209,7 +209,7 @@ export default function LostInTheWoodsPage() {
       </div>
 
       {/* ── IMAGE TRIO ── */}
-      <div className="grid grid-cols-3 gap-[3px] mb-[3px]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px] mb-[3px]">
         {[
           'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6174fc89d355d921c7e90790_The%20Mist.jpg',
           'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617160e66a256eba20753652_228A4098%201_small.jpg',
@@ -224,7 +224,7 @@ export default function LostInTheWoodsPage() {
       </div>
 
       {/* ── HOMES ── */}
-      <div className="max-w-7xl mx-auto px-8 md:px-20 py-28">
+      <div className="max-w-7xl mx-auto px-5 md:px-20 py-14 md:py-28">
         <Section className="mb-16">
           <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-4">THE HOMES</p>
           <h2 className="font-serif text-ivory font-light" style={{ fontSize: 'clamp(2rem, 4vw, 4rem)', lineHeight: 1, letterSpacing: '-0.02em' }}>
@@ -259,7 +259,7 @@ export default function LostInTheWoodsPage() {
       </div>
 
       {/* ── AMENITIES ── */}
-      <div className="border-t border-stone/20 max-w-7xl mx-auto px-8 md:px-20 py-28">
+      <div className="border-t border-stone/20 max-w-7xl mx-auto px-5 md:px-20 py-14 md:py-28">
         <Section className="mb-16">
           <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-4">THE WATERING HOLE & BEYOND</p>
           <h2 className="font-serif text-ivory font-light" style={{ fontSize: 'clamp(2rem, 4vw, 4rem)', lineHeight: 1, letterSpacing: '-0.02em' }}>

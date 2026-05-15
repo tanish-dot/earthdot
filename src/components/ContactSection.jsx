@@ -22,7 +22,7 @@ export default function ContactSection() {
       className="relative bg-void overflow-hidden"
     >
       {/* Background image strip */}
-      <div ref={imgRef} className="relative overflow-hidden" style={{ height: '420px' }}>
+      <div ref={imgRef} className="relative overflow-hidden" style={{ height: 'clamp(280px, 50vw, 420px)' }}>
         <motion.img
           src="/images/hg/hg-070.jpg"
           alt="Aerial view"
@@ -42,7 +42,7 @@ export default function ContactSection() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-8 md:px-16 pt-20 pb-24">
+      <div className="max-w-7xl mx-auto px-5 md:px-16 pt-12 md:pt-20 pb-16 md:pb-24">
         {/* Intro copy */}
         <motion.p
           className="font-serif text-stone-grey text-lg font-light leading-relaxed max-w-lg mb-20"
@@ -80,7 +80,7 @@ export default function ContactSection() {
                   <p className="text-whisper text-stone-grey text-[0.55rem] mt-2 tracking-widest">{p.location}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-6 mt-4 md:mt-0 ml-16 md:ml-0">
+              <div className="flex items-center gap-6 mt-4 md:mt-0 ml-0 md:ml-0">
                 <span className="text-whisper text-muted-olive text-[0.55rem] tracking-widest">{p.status}</span>
                 <motion.div
                   className="w-6 h-[1px] bg-ivory-dim"

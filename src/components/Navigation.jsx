@@ -61,7 +61,7 @@ export default function Navigation({ visible }) {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 w-6 py-1"
+          className="md:hidden flex flex-col gap-1.5 w-10 h-10 items-center justify-center"
         >
           <motion.span
             className="block w-full h-[1px] bg-ivory opacity-60"
@@ -88,13 +88,14 @@ export default function Navigation({ visible }) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex flex-col items-center gap-10">
+            <div className="flex flex-col items-center gap-8">
               {navLinks.map((link, i) => (
                 <Link
                   key={link.label}
                   to={link.to}
                   onClick={() => setMenuOpen(false)}
-                  className="text-display text-ivory text-4xl hover:text-ivory-dim transition-colors duration-300"
+                  className="text-display text-ivory hover:text-ivory-dim transition-colors duration-300"
+                  style={{ fontSize: 'clamp(2rem, 8vw, 3rem)' }}
                 >
                   <motion.span
                     initial={{ opacity: 0, y: 30 }}

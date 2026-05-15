@@ -1,13 +1,14 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 
-function ParallaxPanel({ src, alt, height = '95vh', children, overlay }) {
+function ParallaxPanel({ src, alt, height = '95vh', mobileHeight = '60vh', children, overlay }) {
   const ref = useRef()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const y = useTransform(scrollYProgress, [0, 1], ['-12%', '12%'])
 
   return (
-    <div ref={ref} className="relative overflow-hidden w-full" style={{ height }}>
+    <div ref={ref} className="relative overflow-hidden w-full"
+      style={{ height: `clamp(${mobileHeight}, 70vw, ${height})` }}>
       <motion.img
         src={src} alt={alt}
         loading="lazy" decoding="async"
@@ -113,10 +114,10 @@ export default function ManifestoSection() {
             </motion.p>
 
             {/* Main text */}
-            <div className={`absolute bottom-10 md:bottom-14 ${panel.align === 'right' ? 'right-8 md:right-14 text-right' : 'left-8 md:left-14 text-left'}`}>
+            <div className={`absolute bottom-8 md:bottom-14 ${panel.align === 'right' ? 'right-5 md:right-14 text-right' : 'left-5 md:left-14 text-left'}`}>
               <motion.p
                 className={`font-serif text-ivory font-light leading-tight whitespace-pre-line ${panel.italic ? 'italic' : ''}`}
-                style={{ fontSize: 'clamp(2.8rem, 5.5vw, 6.5rem)', letterSpacing: '-0.02em', lineHeight: 0.9 }}
+                style={{ fontSize: 'clamp(1.8rem, 5.5vw, 6.5rem)', letterSpacing: '-0.02em', lineHeight: 0.9 }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, delay: 0.15, ease: [0.76, 0, 0.24, 1] }}
@@ -167,7 +168,7 @@ export default function ManifestoSection() {
       </div>
 
       {/* ── 3-image strip ── */}
-      <div className="grid grid-cols-3 gap-[3px] pb-[3px]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px] pb-[3px]">
         {[
           { src: '/images/ss/ss-004.jpg' },
           { src: '/images/hg/hg-164.jpg' },
@@ -176,7 +177,7 @@ export default function ManifestoSection() {
           <motion.div
             key={img.src}
             className="relative overflow-hidden"
-            style={{ height: '50vh' }}
+            style={{ height: '50vw', maxHeight: '50vh', minHeight: '260px' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1.1, delay: i * 0.15 }}
