@@ -24,8 +24,8 @@ export default {
         'muted-olive': '#6b6b4a',
       },
       letterSpacing: {
-        'ultra': '0.4em',
-        'widest': '0.3em',
+        'ultra': '0.3em',
+        'widest': '0.22em',
       },
     },
   },
