@@ -20,6 +20,7 @@ const HummingGrovePage = lazy(() => import('./pages/HummingGrovePage'))
 const SoulSpringsPage = lazy(() => import('./pages/SoulSpringsPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const LostInTheWoodsPage = lazy(() => import('./pages/LostInTheWoodsPage'))
+const AdminPage = lazy(() => import('./pages/AdminPage'))
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -101,6 +102,7 @@ export default function App() {
           <Route path="/humming-grove" element={<HummingGrovePage />} />
           <Route path="/soul-springs" element={<SoulSpringsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </Suspense>
     </>
