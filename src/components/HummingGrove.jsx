@@ -1,4 +1,5 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 
 const sensoryWords = ['BIRDS', 'TREES', 'WIND', 'PRIVACY', 'STILLNESS', 'LIGHT']
@@ -6,12 +7,21 @@ const sensoryWords = ['BIRDS', 'TREES', 'WIND', 'PRIVACY', 'STILLNESS', 'LIGHT']
 export default function HummingGrove() {
   const sectionRef = useRef()
   const inView = useInView(sectionRef, { once: true, margin: '-5%' })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)')
+    setIsMobile(mq.matches)
+    const handler = e => setIsMobile(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
 
   return (
     <section id="humming-grove" ref={sectionRef} className="relative bg-void overflow-hidden">
 
       {/* ── CHAPTER MARKER ── */}
-      <div className="flex items-center justify-center pt-32 pb-16 px-8">
+      <div className="flex items-center justify-center pt-10 md:pt-32 pb-10 md:pb-16 px-8">
         <motion.div className="flex items-center gap-6"
           initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ duration: 1 }}>
           <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-forest-glow opacity-50" />
@@ -21,7 +31,7 @@ export default function HummingGrove() {
       </div>
 
       {/* ── TITLE ── */}
-      <div className="px-8 md:px-16 pb-12 max-w-7xl mx-auto">
+      <div className="px-8 md:px-16 pb-8 md:pb-12 max-w-7xl mx-auto">
         <motion.h2 className="text-display text-ivory"
           style={{ fontSize: 'clamp(3.2rem, 9vw, 8rem)', lineHeight: 0.84 }}
           initial={{ opacity: 0, y: 80 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 80 }}
@@ -38,19 +48,23 @@ export default function HummingGrove() {
       {/* ── HERO IMAGE — glass facade forest ── */}
       <HeroImage src="/images/hg/hg-000.jpg" alt="Glass facade opening to forest" inView={inView}
         overlay="linear-gradient(to bottom, rgba(8,8,8,0.15) 0%, rgba(8,8,8,0) 40%, rgba(8,8,8,0.8) 100%)"
-        height="90vh">
-        <div className="absolute bottom-12 left-8 md:left-16 max-w-sm">
+        height={isMobile ? '50vh' : '90vh'}>
+        <div className="absolute bottom-8 md:bottom-12 left-6 md:left-16 max-w-[85vw] md:max-w-sm">
           <p className="text-whisper text-ivory-dim tracking-widest mb-3 text-[0.55rem]">AN EXCLUSIVE NATURE-LED RETREAT</p>
-          <p className="font-serif text-ivory text-2xl font-light italic leading-snug">
-            "Where every home feels private, every street feels shaded, and every movement feels like a pause."
+          <p className="font-serif text-ivory text-lg md:text-2xl font-light italic leading-snug">
+            "Where every home feels private, every street feels shaded."
           </p>
         </div>
       </HeroImage>
 
       {/* ── TWO-COLUMN: valley landscape + intro copy ── */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mt-2">
-        <ParallaxImage src="/images/hg/hg-009.jpg" alt="Misty green valley" height="70vh" delay={0} inView={inView} />
-        <div className="flex flex-col justify-center px-10 md:px-16 py-16 bg-void gap-10">
+        {/* Image — desktop only */}
+        <div className="hidden md:block">
+          <ParallaxImage src="/images/hg/hg-009.jpg" alt="Misty green valley" height="70vh" delay={0} inView={inView} />
+        </div>
+        {/* Copy — always visible */}
+        <div className="flex flex-col justify-center px-6 md:px-16 py-10 md:py-16 bg-void gap-6 md:gap-10">
           <motion.p className="text-whisper text-forest-glow tracking-ultra text-[0.55rem]"
             initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ delay: 0.3, duration: 0.8 }}>
             ANANTHAGIRI HILLS — HYDERABAD
@@ -60,130 +74,162 @@ export default function HummingGrove() {
             transition={{ delay: 0.4, duration: 1 }}>
             Designed around quiet movement, shaded greens, and intimate outdoor living.
           </motion.p>
-          <motion.p className="font-serif text-stone-grey text-base font-light leading-relaxed"
+          {/* Long copy — desktop only */}
+          <motion.p className="hidden md:block font-serif text-stone-grey text-base font-light leading-relaxed"
             initial={{ opacity: 0 }} animate={{ opacity: inView ? 0.7 : 0 }} transition={{ delay: 0.6, duration: 1 }}>
             The community brings together the comfort of private plots with the calmness of a nature sanctuary. 12.46 acres where the land is the main organizing layer — not an afterthought.
           </motion.p>
           <StatRow items={[{ v: '12.46', l: 'ACRES' }, { v: '600 & 400', l: 'SQ YARDS' }, { v: '100%', l: 'NATURE-LED' }]} inView={inView} />
-        </div>
-      </div>
-
-      {/* ── SENSORY RAIL ── */}
-      <SensoryRail words={sensoryWords} inView={inView} />
-
-      {/* ── FULL BLEED: filtered forest light ── */}
-      <FullBleedImage src="/images/hg/hg-010.jpg" alt="Forest light rays" height="80vh" inView={inView}>
-        <CenteredQuote
-          eyebrow="THE LIVING LANDSCAPE"
-          title="Living Landscape"
-          body="Birds. Trees. Wind. Privacy & Connection. Human Life. Sensory Experience."
-          inView={inView}
-        />
-      </FullBleedImage>
-
-      {/* ── ARCHITECTURE TRIO ── */}
-      <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-2">
-        <div className="md:col-span-2">
-          <ParallaxImage src="/images/hg/hg-105.jpg" alt="Arched villa at dusk" height="75vh" inView={inView} delay={0}>
-            <div className="absolute bottom-8 left-8">
-              <p className="text-whisper text-ivory-dim text-[0.55rem] tracking-widest mb-1">600 SQYDS — ELEVATION I</p>
-              <p className="font-serif text-ivory text-xl font-light italic">Arched. Grounded. Open to sky.</p>
-            </div>
-          </ParallaxImage>
-        </div>
-        <div className="flex flex-col gap-2">
-          <ParallaxImage src="/images/hg/hg-106.jpg" alt="Modern villa at dusk" height="36.5vh" inView={inView} delay={0.1}>
-            <div className="absolute bottom-5 left-6">
-              <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">600 SQYDS — ELEVATION II</p>
-            </div>
-          </ParallaxImage>
-          <ParallaxImage src="/images/hg/hg-111.jpg" alt="Modern villa daytime" height="36.5vh" inView={inView} delay={0.2}>
-            <div className="absolute bottom-5 left-6">
-              <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">400 SQYDS — ELEVATION I</p>
-            </div>
-          </ParallaxImage>
-        </div>
-      </div>
-
-      {/* ── ARCHITECTURE MANIFESTO TEXT ── */}
-      <div className="px-8 md:px-16 py-24 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <motion.div className="flex flex-col gap-8"
-            initial={{ opacity: 0, x: -40 }} animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -40 }}
-            transition={{ duration: 1.2, delay: 0.2 }}>
-            <p className="text-whisper text-stone-grey tracking-ultra text-[0.55rem]">WHERE THE DAY SLOWS DOWN</p>
-            <h3 className="text-display text-ivory" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: 0.9 }}>
-              Planned around<br /><em className="text-ivory-dim">Privacy.<br />Pause.<br />Nature.</em>
-            </h3>
-            <p className="font-serif text-stone-grey text-base font-light leading-relaxed">
-              Morning begins with filtered light. Evenings settle under trees. Every path leads you closer to stillness. The villa is imagined as an inward-looking retreat — open to sky, light, and landscape, yet protected from outside disturbance.
-            </p>
+          {/* Mobile CTA */}
+          <motion.div className="md:hidden pt-2"
+            initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ duration: 1, delay: 0.9 }}>
+            <Link to="/humming-grove"
+              className="text-whisper text-ivory/60 text-[0.55rem] tracking-ultra border-b border-ivory/20 pb-1">
+              EXPLORE CHAPTER TWO →
+            </Link>
           </motion.div>
-          <div className="flex flex-col gap-6">
-            {[
-              { t: 'CALM LIVING', b: 'A place shaped by rhythm. Where every home feels private and every movement feels like a pause.' },
-              { t: 'OPEN LANDSCAPES', b: 'Designed around quiet movement, shaded greens, and intimate outdoor living.' },
-              { t: 'TIMELESS OWNERSHIP', b: 'Not merely property — a personal sanctuary woven with the living landscape.' },
-            ].map((p, i) => (
-              <motion.div key={p.t} className="flex flex-col gap-3 border-l border-stone pl-6"
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
-                transition={{ duration: 0.9, delay: 0.4 + i * 0.15 }}>
-                <p className="text-whisper text-ivory-dim text-[0.6rem] tracking-widest">{p.t}</p>
-                <p className="font-serif text-stone-grey text-sm font-light leading-relaxed">{p.b}</p>
-              </motion.div>
-            ))}
+        </div>
+      </div>
+
+      {/* ── SENSORY RAIL — desktop only ── */}
+      <div className="hidden md:block">
+        <SensoryRail words={sensoryWords} inView={inView} />
+      </div>
+
+      {/* ── FULL BLEED: filtered forest light — desktop only ── */}
+      <div className="hidden md:block">
+        <FullBleedImage src="/images/hg/hg-010.jpg" alt="Forest light rays" height="80vh" inView={inView}>
+          <CenteredQuote
+            eyebrow="THE LIVING LANDSCAPE"
+            title="Living Landscape"
+            body="Birds. Trees. Wind. Privacy & Connection. Human Life. Sensory Experience."
+            inView={inView}
+          />
+        </FullBleedImage>
+      </div>
+
+      {/* ── ARCHITECTURE TRIO — desktop only ── */}
+      <div className="hidden md:block">
+        <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-2">
+          <div className="md:col-span-2">
+            <ParallaxImage src="/images/hg/hg-105.jpg" alt="Arched villa at dusk" height="75vh" inView={inView} delay={0}>
+              <div className="absolute bottom-8 left-8">
+                <p className="text-whisper text-ivory-dim text-[0.55rem] tracking-widest mb-1">600 SQYDS — ELEVATION I</p>
+                <p className="font-serif text-ivory text-xl font-light italic">Arched. Grounded. Open to sky.</p>
+              </div>
+            </ParallaxImage>
+          </div>
+          <div className="flex flex-col gap-2">
+            <ParallaxImage src="/images/hg/hg-106.jpg" alt="Modern villa at dusk" height="36.5vh" inView={inView} delay={0.1}>
+              <div className="absolute bottom-5 left-6">
+                <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">600 SQYDS — ELEVATION II</p>
+              </div>
+            </ParallaxImage>
+            <ParallaxImage src="/images/hg/hg-111.jpg" alt="Modern villa daytime" height="36.5vh" inView={inView} delay={0.2}>
+              <div className="absolute bottom-5 left-6">
+                <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">400 SQYDS — ELEVATION I</p>
+              </div>
+            </ParallaxImage>
           </div>
         </div>
       </div>
 
-      {/* ── INTERIOR + GARDEN ROW ── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
-        <ParallaxImage src="/images/hg/hg-098.jpg" alt="Courtyard interior with chair" height="65vh" inView={inView} delay={0}>
-          <div className="absolute inset-0 flex items-end p-8"
-            style={{ background: 'linear-gradient(to top, rgba(8,8,8,0.7) 0%, transparent 50%)' }}>
-            <p className="font-serif text-ivory text-xl font-light italic">Where the day slows down.</p>
-          </div>
-        </ParallaxImage>
-        <ParallaxImage src="/images/hg/hg-101.jpg" alt="Tropical round pool garden" height="65vh" inView={inView} delay={0.1}>
-          <div className="absolute inset-0 flex items-end p-8"
-            style={{ background: 'linear-gradient(to top, rgba(8,8,8,0.7) 0%, transparent 50%)' }}>
-            <p className="font-serif text-ivory text-xl font-light italic">Planned around privacy & pause.</p>
-          </div>
-        </ParallaxImage>
-      </div>
-
-      {/* ── AERIAL + RAIN WINDOW ── */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
-        <div className="md:col-span-3">
-          <ParallaxImage src="/images/hg/hg-070.jpg" alt="Sunset aerial of community" height="60vh" inView={inView} delay={0}>
-            <div className="absolute bottom-8 left-8 right-8">
-              <p className="text-whisper text-ivory-dim text-[0.55rem] tracking-widest mb-2">MASTER PLAN — AERIAL VIEW</p>
-              <p className="font-serif text-ivory text-lg font-light italic">A place woven with nature.</p>
-            </div>
-          </ParallaxImage>
-        </div>
-        <div className="md:col-span-2 flex flex-col gap-2">
-          <ParallaxImage src="/images/hg/hg-163.jpg" alt="Raining forest window view" height="29vh" inView={inView} delay={0.1} />
-          <ParallaxImage src="/images/hg/hg-164.jpg" alt="Bird silhouette in forest" height="29vh" inView={inView} delay={0.2}>
-            <div className="absolute inset-0 flex items-center justify-center"
-              style={{ background: 'rgba(8,8,8,0.2)' }}>
-              <p className="font-serif text-ivory text-2xl italic font-light text-center px-6">
-                "Where every plot breathes with nature."
+      {/* ── ARCHITECTURE MANIFESTO TEXT — desktop only ── */}
+      <div className="hidden md:block">
+        <div className="px-8 md:px-16 py-24 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <motion.div className="flex flex-col gap-8"
+              initial={{ opacity: 0, x: -40 }} animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -40 }}
+              transition={{ duration: 1.2, delay: 0.2 }}>
+              <p className="text-whisper text-stone-grey tracking-ultra text-[0.55rem]">WHERE THE DAY SLOWS DOWN</p>
+              <h3 className="text-display text-ivory" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: 0.9 }}>
+                Planned around<br /><em className="text-ivory-dim">Privacy.<br />Pause.<br />Nature.</em>
+              </h3>
+              <p className="font-serif text-stone-grey text-base font-light leading-relaxed">
+                Morning begins with filtered light. Evenings settle under trees. Every path leads you closer to stillness. The villa is imagined as an inward-looking retreat — open to sky, light, and landscape, yet protected from outside disturbance.
               </p>
+            </motion.div>
+            <div className="flex flex-col gap-6">
+              {[
+                { t: 'CALM LIVING', b: 'A place shaped by rhythm. Where every home feels private and every movement feels like a pause.' },
+                { t: 'OPEN LANDSCAPES', b: 'Designed around quiet movement, shaded greens, and intimate outdoor living.' },
+                { t: 'TIMELESS OWNERSHIP', b: 'Not merely property — a personal sanctuary woven with the living landscape.' },
+              ].map((p, i) => (
+                <motion.div key={p.t} className="flex flex-col gap-3 border-l border-stone pl-6"
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                  transition={{ duration: 0.9, delay: 0.4 + i * 0.15 }}>
+                  <p className="text-whisper text-ivory-dim text-[0.6rem] tracking-widest">{p.t}</p>
+                  <p className="font-serif text-stone-grey text-sm font-light leading-relaxed">{p.b}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── INTERIOR + GARDEN ROW — desktop only ── */}
+      <div className="hidden md:block">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
+          <ParallaxImage src="/images/hg/hg-098.jpg" alt="Courtyard interior with chair" height="65vh" inView={inView} delay={0}>
+            <div className="absolute inset-0 flex items-end p-8"
+              style={{ background: 'linear-gradient(to top, rgba(8,8,8,0.7) 0%, transparent 50%)' }}>
+              <p className="font-serif text-ivory text-xl font-light italic">Where the day slows down.</p>
+            </div>
+          </ParallaxImage>
+          <ParallaxImage src="/images/hg/hg-101.jpg" alt="Tropical round pool garden" height="65vh" inView={inView} delay={0.1}>
+            <div className="absolute inset-0 flex items-end p-8"
+              style={{ background: 'linear-gradient(to top, rgba(8,8,8,0.7) 0%, transparent 50%)' }}>
+              <p className="font-serif text-ivory text-xl font-light italic">Planned around privacy & pause.</p>
             </div>
           </ParallaxImage>
         </div>
       </div>
 
-      {/* ── FULL BLEED: forest mist closing ── */}
-      <FullBleedImage src="/images/hg/hg-002.jpg" alt="Forest with light rays" height="70vh" inView={inView} delay={0.1}>
-        <CenteredQuote
-          eyebrow="THE HUMMING GROVE"
-          title=""
-          body=""
-          closing="Amplify. Belong."
-          inView={inView}
-        />
+      {/* ── AERIAL + RAIN WINDOW — desktop only ── */}
+      <div className="hidden md:block">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
+          <div className="md:col-span-3">
+            <ParallaxImage src="/images/hg/hg-070.jpg" alt="Sunset aerial of community" height="60vh" inView={inView} delay={0}>
+              <div className="absolute bottom-8 left-8 right-8">
+                <p className="text-whisper text-ivory-dim text-[0.55rem] tracking-widest mb-2">MASTER PLAN — AERIAL VIEW</p>
+                <p className="font-serif text-ivory text-lg font-light italic">A place woven with nature.</p>
+              </div>
+            </ParallaxImage>
+          </div>
+          <div className="md:col-span-2 flex flex-col gap-2">
+            <ParallaxImage src="/images/hg/hg-163.jpg" alt="Raining forest window view" height="29vh" inView={inView} delay={0.1} />
+            <ParallaxImage src="/images/hg/hg-164.jpg" alt="Bird silhouette in forest" height="29vh" inView={inView} delay={0.2}>
+              <div className="absolute inset-0 flex items-center justify-center"
+                style={{ background: 'rgba(8,8,8,0.2)' }}>
+                <p className="font-serif text-ivory text-2xl italic font-light text-center px-6">
+                  "Where every plot breathes with nature."
+                </p>
+              </div>
+            </ParallaxImage>
+          </div>
+        </div>
+      </div>
+
+      {/* ── CLOSING FULL BLEED ── */}
+      <FullBleedImage src="/images/hg/hg-002.jpg" alt="Forest with light rays" height={isMobile ? '50vh' : '70vh'} inView={inView} delay={0.1}>
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center z-10">
+          <motion.p className="text-whisper text-ivory-dim tracking-ultra text-[0.55rem] mb-6"
+            initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ duration: 1 }}>
+            THE HUMMING GROVE
+          </motion.p>
+          <motion.p className="font-serif text-ivory text-3xl md:text-5xl font-light italic"
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+            transition={{ duration: 1.2, delay: 0.2 }}>
+            Amplify. Belong.
+          </motion.p>
+          <motion.div className="mt-10"
+            initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ duration: 1, delay: 0.5 }}>
+            <Link to="/humming-grove"
+              className="text-whisper text-ivory/60 hover:text-ivory text-[0.55rem] tracking-ultra transition-colors duration-500 border-b border-ivory/20 hover:border-ivory pb-1">
+              EXPLORE CHAPTER TWO →
+            </Link>
+          </motion.div>
+        </div>
       </FullBleedImage>
 
     </section>
@@ -276,7 +322,7 @@ function SensoryRail({ words, inView }) {
 
 function StatRow({ items, inView }) {
   return (
-    <div className="flex items-center gap-10 pt-6 border-t border-stone">
+    <div className="flex items-center gap-8 pt-6 border-t border-stone flex-wrap">
       {items.map((s, i) => (
         <motion.div key={s.l} className="flex flex-col gap-1"
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 10 }}

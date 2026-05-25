@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 
@@ -7,12 +7,21 @@ const sensoryWords = ['FOREST', 'MIST', 'ELEVATION', 'SILENCE', 'WILDERNESS', 'B
 export default function LostInTheWoods() {
   const sectionRef = useRef()
   const inView = useInView(sectionRef, { once: true, margin: '-5%' })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)')
+    setIsMobile(mq.matches)
+    const handler = e => setIsMobile(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
 
   return (
     <section id="lost-in-the-woods" ref={sectionRef} className="relative bg-void overflow-hidden">
 
       {/* ── CHAPTER MARKER ── */}
-      <div className="flex items-center justify-center pt-16 md:pt-32 pb-10 md:pb-16 px-8">
+      <div className="flex items-center justify-center pt-10 md:pt-32 pb-10 md:pb-16 px-8">
         <motion.div className="flex items-center gap-6"
           initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ duration: 1 }}>
           <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-forest-glow opacity-50" />
@@ -22,7 +31,7 @@ export default function LostInTheWoods() {
       </div>
 
       {/* ── TITLE ── */}
-      <div className="px-5 md:px-16 pb-10 md:pb-12 max-w-7xl mx-auto">
+      <div className="px-5 md:px-16 pb-8 md:pb-12 max-w-7xl mx-auto">
         <motion.h2 className="text-display text-ivory"
           style={{ fontSize: 'clamp(2.8rem, 9vw, 8rem)', lineHeight: 0.84 }}
           initial={{ opacity: 0, y: 80 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 80 }}
@@ -42,7 +51,7 @@ export default function LostInTheWoods() {
         alt="Lost in the Woods gate"
         inView={inView}
         overlay="linear-gradient(to bottom, rgba(8,8,8,0.15) 0%, rgba(8,8,8,0) 40%, rgba(8,8,8,0.8) 100%)"
-        height="90vh">
+        height={isMobile ? '50vh' : '90vh'}>
         <div className="absolute bottom-8 md:bottom-12 left-5 md:left-16 max-w-[85vw] md:max-w-sm">
           <p className="text-whisper text-ivory-dim tracking-widest mb-3 text-[0.55rem]">SAKLESHPUR — NILGIRI BIOSPHERE RESERVE</p>
           <p className="font-serif text-ivory text-lg md:text-2xl font-light italic leading-snug">
@@ -53,14 +62,18 @@ export default function LostInTheWoods() {
 
       {/* ── TWO-COLUMN: clubhouse + intro copy ── */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mt-2">
-        <ParallaxImage
-          src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6172619e13b09800ca2c1350_Clubhouse_with-signage.jpg"
-          alt="The Watering Hole clubhouse"
-          height="55vh"
-          delay={0}
-          inView={inView}
-        />
-        <div className="flex flex-col justify-center px-5 md:px-16 py-10 md:py-16 bg-void gap-8 md:gap-10">
+        {/* Image — desktop only */}
+        <div className="hidden md:block">
+          <ParallaxImage
+            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6172619e13b09800ca2c1350_Clubhouse_with-signage.jpg"
+            alt="The Watering Hole clubhouse"
+            height="55vh"
+            delay={0}
+            inView={inView}
+          />
+        </div>
+        {/* Copy column — always visible */}
+        <div className="flex flex-col justify-center px-5 md:px-16 py-10 md:py-16 bg-void gap-6 md:gap-10">
           <motion.p className="text-whisper text-forest-glow tracking-ultra text-[0.55rem]"
             initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ delay: 0.3, duration: 0.8 }}>
             SAKLESHPUR — KARNATAKA
@@ -70,96 +83,113 @@ export default function LostInTheWoods() {
             transition={{ delay: 0.4, duration: 1 }}>
             Fuel-free. Forest-first. Built with the minimum necessary to make it liveable.
           </motion.p>
-          <motion.p className="font-serif text-stone-grey text-base font-light leading-relaxed"
+          {/* Long copy — desktop only */}
+          <motion.p className="hidden md:block font-serif text-stone-grey text-base font-light leading-relaxed"
             initial={{ opacity: 0 }} animate={{ opacity: inView ? 0.7 : 0 }} transition={{ delay: 0.6, duration: 1 }}>
             Every plot was positioned around what already existed — the trees, the trails, the birdsong, the silence. Prefabricated steel chalets that arrive complete and sit gently on the earth.
           </motion.p>
           <StatRow items={[{ v: '36.68', l: 'ACRES' }, { v: '1030–1170', l: 'METRES' }, { v: '30+', l: 'TREE SPECIES' }]} inView={inView} />
-        </div>
-      </div>
-
-      {/* ── SENSORY RAIL ── */}
-      <SensoryRail words={sensoryWords} inView={inView} />
-
-      {/* ── FULL BLEED: clubhouse interior ── */}
-      <FullBleedImage
-        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61726241e239c92636c8c511_clubhouse-01-p-1600.jpeg"
-        alt="Clubhouse interior"
-        height="80vh"
-        inView={inView}>
-        <CenteredQuote
-          eyebrow="THE WATERING HOLE"
-          body="A clubhouse that belongs to the forest. Built from the ground up without clearing a single tree."
-          inView={inView}
-        />
-      </FullBleedImage>
-
-      {/* ── IMAGE TRIO ── */}
-      <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-2">
-        <div className="md:col-span-2">
-          <ParallaxImage
-            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61765104b5b59f20914ca8f7_Chalet_03.jpg"
-            alt="Chalet 03"
-            height="75vh"
-            inView={inView}
-            delay={0}>
-            <div className="absolute bottom-8 left-8">
-              <p className="text-whisper text-ivory-dim text-[0.55rem] tracking-widest mb-1">PREFAB STEEL — DELIVERED</p>
-              <p className="font-serif text-ivory text-xl font-light italic">No dig. No disruption. Just forest.</p>
-            </div>
-          </ParallaxImage>
-        </div>
-        <div className="flex flex-col gap-2">
-          <ParallaxImage
-            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/64255cfba0534b49a9381797_LITW-Progress_March00001.webp"
-            alt="Site progress"
-            height="36.5vh"
-            inView={inView}
-            delay={0.1}>
-            <div className="absolute bottom-5 left-6">
-              <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">ON SITE — NOW DELIVERED</p>
-            </div>
-          </ParallaxImage>
-          <ParallaxImage
-            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617530de1733a6b851dfa241_Fish%20Pond.png"
-            alt="Fish pond amenity"
-            height="36.5vh"
-            inView={inView}
-            delay={0.2}>
-            <div className="absolute bottom-5 left-6">
-              <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">FISH POND — 35+ AMENITIES</p>
-            </div>
-          </ParallaxImage>
-        </div>
-      </div>
-
-      {/* ── COPY BLOCK ── */}
-      <div className="px-5 md:px-16 py-14 md:py-24 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <motion.div className="flex flex-col gap-8"
-            initial={{ opacity: 0, x: -40 }} animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -40 }}
-            transition={{ duration: 1.2, delay: 0.2 }}>
-            <p className="text-whisper text-stone-grey tracking-ultra text-[0.55rem]">WHERE THE FOREST STAYS QUIET</p>
-            <h3 className="text-display text-ivory" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: 0.9 }}>
-              Planned around<br /><em className="text-ivory-dim">Forest.<br />Silence.<br />Life.</em>
-            </h3>
-            <p className="font-serif text-stone-grey text-base font-light leading-relaxed">
-              Fuel-powered vehicles are prohibited inside the community. You arrive, and then you walk, cycle, or take an electric buggy. The forest stays quiet. The mist stays low.
-            </p>
+          {/* Mobile CTA */}
+          <motion.div className="md:hidden pt-2"
+            initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ duration: 1, delay: 0.9 }}>
+            <Link to="/lost-in-the-woods"
+              className="text-whisper text-ivory/60 text-[0.55rem] tracking-ultra border-b border-ivory/20 pb-1">
+              EXPLORE CHAPTER ONE →
+            </Link>
           </motion.div>
-          <div className="flex flex-col gap-6">
-            {[
-              { t: 'THREE LAND LAYERS', b: 'A tropical foliage buffer, a personal growing zone, and natural forest boundaries — all coexisting as one living system.' },
-              { t: '35+ AMENITIES', b: 'The Watering Hole clubhouse, spa, treetop walkways, hiking routes, rock climbing, boating. All of them rooted in nature.' },
-              { t: 'WILDLIFE NEIGHBOURS', b: 'Flycatchers, bulbuls, monitor lizards, deer, geckos, and martens. The fauna came with the land and will stay with it.' },
-            ].map((p, i) => (
-              <motion.div key={p.t} className="flex flex-col gap-3 border-l border-stone pl-6"
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
-                transition={{ duration: 0.9, delay: 0.4 + i * 0.15 }}>
-                <p className="text-whisper text-ivory-dim text-[0.6rem] tracking-widest">{p.t}</p>
-                <p className="font-serif text-stone-grey text-sm font-light leading-relaxed">{p.b}</p>
-              </motion.div>
-            ))}
+        </div>
+      </div>
+
+      {/* ── SENSORY RAIL — desktop only ── */}
+      <div className="hidden md:block">
+        <SensoryRail words={sensoryWords} inView={inView} />
+      </div>
+
+      {/* ── FULL BLEED: clubhouse interior — desktop only ── */}
+      <div className="hidden md:block">
+        <FullBleedImage
+          src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61726241e239c92636c8c511_clubhouse-01-p-1600.jpeg"
+          alt="Clubhouse interior"
+          height="80vh"
+          inView={inView}>
+          <CenteredQuote
+            eyebrow="THE WATERING HOLE"
+            body="A clubhouse that belongs to the forest. Built from the ground up without clearing a single tree."
+            inView={inView}
+          />
+        </FullBleedImage>
+      </div>
+
+      {/* ── IMAGE TRIO — desktop only ── */}
+      <div className="hidden md:block">
+        <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-2">
+          <div className="md:col-span-2">
+            <ParallaxImage
+              src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61765104b5b59f20914ca8f7_Chalet_03.jpg"
+              alt="Chalet 03"
+              height="75vh"
+              inView={inView}
+              delay={0}>
+              <div className="absolute bottom-8 left-8">
+                <p className="text-whisper text-ivory-dim text-[0.55rem] tracking-widest mb-1">PREFAB STEEL — DELIVERED</p>
+                <p className="font-serif text-ivory text-xl font-light italic">No dig. No disruption. Just forest.</p>
+              </div>
+            </ParallaxImage>
+          </div>
+          <div className="flex flex-col gap-2">
+            <ParallaxImage
+              src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/64255cfba0534b49a9381797_LITW-Progress_March00001.webp"
+              alt="Site progress"
+              height="36.5vh"
+              inView={inView}
+              delay={0.1}>
+              <div className="absolute bottom-5 left-6">
+                <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">ON SITE — NOW DELIVERED</p>
+              </div>
+            </ParallaxImage>
+            <ParallaxImage
+              src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617530de1733a6b851dfa241_Fish%20Pond.png"
+              alt="Fish pond amenity"
+              height="36.5vh"
+              inView={inView}
+              delay={0.2}>
+              <div className="absolute bottom-5 left-6">
+                <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">FISH POND — 35+ AMENITIES</p>
+              </div>
+            </ParallaxImage>
+          </div>
+        </div>
+      </div>
+
+      {/* ── COPY BLOCK — desktop only ── */}
+      <div className="hidden md:block">
+        <div className="px-5 md:px-16 py-14 md:py-24 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+            <motion.div className="flex flex-col gap-8"
+              initial={{ opacity: 0, x: -40 }} animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -40 }}
+              transition={{ duration: 1.2, delay: 0.2 }}>
+              <p className="text-whisper text-stone-grey tracking-ultra text-[0.55rem]">WHERE THE FOREST STAYS QUIET</p>
+              <h3 className="text-display text-ivory" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: 0.9 }}>
+                Planned around<br /><em className="text-ivory-dim">Forest.<br />Silence.<br />Life.</em>
+              </h3>
+              <p className="font-serif text-stone-grey text-base font-light leading-relaxed">
+                Fuel-powered vehicles are prohibited inside the community. You arrive, and then you walk, cycle, or take an electric buggy. The forest stays quiet. The mist stays low.
+              </p>
+            </motion.div>
+            <div className="flex flex-col gap-6">
+              {[
+                { t: 'THREE LAND LAYERS', b: 'A tropical foliage buffer, a personal growing zone, and natural forest boundaries — all coexisting as one living system.' },
+                { t: '35+ AMENITIES', b: 'The Watering Hole clubhouse, spa, treetop walkways, hiking routes, rock climbing, boating. All of them rooted in nature.' },
+                { t: 'WILDLIFE NEIGHBOURS', b: 'Flycatchers, bulbuls, monitor lizards, deer, geckos, and martens. The fauna came with the land and will stay with it.' },
+              ].map((p, i) => (
+                <motion.div key={p.t} className="flex flex-col gap-3 border-l border-stone pl-6"
+                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+                  transition={{ duration: 0.9, delay: 0.4 + i * 0.15 }}>
+                  <p className="text-whisper text-ivory-dim text-[0.6rem] tracking-widest">{p.t}</p>
+                  <p className="font-serif text-stone-grey text-sm font-light leading-relaxed">{p.b}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -168,7 +198,7 @@ export default function LostInTheWoods() {
       <FullBleedImage
         src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61755e81d355d958feea6e5e_LITW%20Artwork.jpg"
         alt="Lost in the Woods"
-        height="70vh"
+        height={isMobile ? '50vh' : '70vh'}
         inView={inView}
         delay={0.1}>
         <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center z-10">
@@ -181,7 +211,7 @@ export default function LostInTheWoods() {
             transition={{ duration: 1.2, delay: 0.2 }}>
             Get lost. Stay found.
           </motion.p>
-          <motion.div className="mt-10"
+          <motion.div className="mt-10 hidden md:block"
             initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ duration: 1, delay: 0.5 }}>
             <Link to="/lost-in-the-woods"
               className="text-whisper text-ivory/60 hover:text-ivory text-[0.55rem] tracking-ultra transition-colors duration-500 border-b border-ivory/20 hover:border-ivory pb-1">

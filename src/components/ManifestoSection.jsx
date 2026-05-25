@@ -167,27 +167,6 @@ export default function ManifestoSection() {
         </div>
       </div>
 
-      {/* ── 3-image strip ── */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px] pb-[3px]">
-        {[
-          { src: '/images/ss/ss-004.jpg' },
-          { src: '/images/hg/hg-164.jpg' },
-          { src: '/images/ss/ss-006.jpg' },
-        ].map((img, i) => (
-          <motion.div
-            key={img.src}
-            className="relative overflow-hidden"
-            style={{ height: '50vw', maxHeight: '50vh', minHeight: '260px' }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1.1, delay: i * 0.15 }}
-            viewport={{ once: true }}
-          >
-            <img src={img.src} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover"
-              style={{ filter: 'brightness(0.65)' }} />
-          </motion.div>
-        ))}
-      </div>
 
     </section>
   )
