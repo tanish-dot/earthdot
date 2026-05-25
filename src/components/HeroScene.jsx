@@ -1,6 +1,16 @@
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 export default function HeroScene({ ready }) {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)')
+    setIsMobile(mq.matches)
+    const handler = e => setIsMobile(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
   return (
     <section style={{ height: '100svh' }} className="relative">
       <div className="w-full overflow-hidden bg-void" style={{ height: '100svh' }}>
@@ -22,9 +32,10 @@ export default function HeroScene({ ready }) {
             className="absolute inset-0 w-full h-full object-cover"
             decoding="async"
           />
-          {/* Video sits on top and covers the image once it loads */}
+          {/* Video — mobile gets portrait crop, desktop gets landscape */}
           <video
-            src="/video.mp4"
+            key={isMobile ? 'mobile' : 'desktop'}
+            src={isMobile ? '/video-mobile.mp4' : '/video.mp4'}
             autoPlay
             loop
             muted
