@@ -81,7 +81,7 @@ export default function LostInTheWoods() {
           <motion.p className="font-serif text-ivory text-2xl md:text-3xl font-light leading-relaxed"
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
             transition={{ delay: 0.4, duration: 1 }}>
-            Prefab steel chalets on 36.68 acres of Western Ghats forest. Treetop walks, fish pond, spa, and private trails — no fuel vehicles inside the community.
+            36.68 acres at 1,000m elevation in Sakleshpur, Western Ghats. 35+ amenities — treetop walks, spa, fish pond, private trails — and a no fuel vehicle policy.
           </motion.p>
           {/* Long copy — desktop only */}
           <motion.p className="hidden md:block font-serif text-stone-grey text-base font-light leading-relaxed"
