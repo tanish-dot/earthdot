@@ -72,7 +72,7 @@ export default function HummingGrove() {
           <motion.p className="font-serif text-ivory text-2xl md:text-3xl font-light leading-relaxed"
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
             transition={{ delay: 0.4, duration: 1 }}>
-            Designed around quiet movement, shaded greens, and intimate outdoor living.
+            Villa plots of 600 & 400 sq yds across 12.46 acres in the Ananthagiri Hills. Shaded streets, forest frontage, 30 min from Hyderabad.
           </motion.p>
           {/* Long copy — desktop only */}
           <motion.p className="hidden md:block font-serif text-stone-grey text-base font-light leading-relaxed"

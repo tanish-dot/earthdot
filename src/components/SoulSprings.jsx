@@ -70,7 +70,7 @@ export default function SoulSprings() {
           <motion.p className="font-serif text-ivory text-2xl md:text-3xl font-light leading-relaxed"
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
             transition={{ delay: 0.4, duration: 1 }}>
-            Where nature leads, humans proceed. Life finds all it needs.
+            369 plots across 57 acres around an ancient living spring in Sadanahalli. 40+ amenities, adjacent to Isha Foundation, 45 min from Bengaluru.
           </motion.p>
           {/* Long copy — desktop only */}
           <motion.p className="hidden md:block font-serif text-stone-grey text-base font-light leading-relaxed"

@@ -81,7 +81,7 @@ export default function LostInTheWoods() {
           <motion.p className="font-serif text-ivory text-2xl md:text-3xl font-light leading-relaxed"
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
             transition={{ delay: 0.4, duration: 1 }}>
-            Fuel-free. Forest-first. Built with the minimum necessary to make it liveable.
+            Prefab steel chalets on 36.68 acres of Western Ghats forest. Treetop walks, fish pond, spa, and private trails — no fuel vehicles inside the community.
           </motion.p>
           {/* Long copy — desktop only */}
           <motion.p className="hidden md:block font-serif text-stone-grey text-base font-light leading-relaxed"
