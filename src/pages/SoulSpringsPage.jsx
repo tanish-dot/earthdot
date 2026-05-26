@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import ChapterFooter from '../components/ChapterFooter'
 
 const stats = [
   { value: '57', unit: 'ACRES', label: 'Total Land' },
@@ -322,15 +323,7 @@ export default function SoulSpringsPage() {
         </div>
       </div>
 
-      {/* ── FOOTER NAV ── */}
-      <div className="border-t border-stone px-5 md:px-20 py-8 md:py-10 flex items-center justify-between">
-        <Link to="/humming-grove" className="text-whisper text-stone-grey text-[0.5rem] tracking-ultra hover:text-ivory transition-colors duration-500">
-          ← CHAPTER I: THE HUMMING GROVE
-        </Link>
-        <Link to="/" className="text-whisper text-stone-grey text-[0.5rem] tracking-ultra hover:text-ivory transition-colors duration-500">
-          BACK TO HOME →
-        </Link>
-      </div>
+      <ChapterFooter current="ss" />
 
     </div>
   )

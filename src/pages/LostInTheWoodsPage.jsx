@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import ChapterFooter from '../components/ChapterFooter'
 
 const stats = [
   { value: '36.68', unit: 'ACRES', label: 'Total Land' },
@@ -339,6 +340,8 @@ export default function LostInTheWoodsPage() {
           </Section>
         </div>
       </div>
+
+      <ChapterFooter current="litw" />
 
     </div>
   )
