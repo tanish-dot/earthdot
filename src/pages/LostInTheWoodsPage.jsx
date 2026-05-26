@@ -233,8 +233,8 @@ export default function LostInTheWoodsPage() {
         </div>
       </div>
 
-      {/* ── IMAGE TRIO ── */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px] mb-[3px]">
+      {/* ── IMAGE TRIO — desktop only ── */}
+      <div className="hidden md:grid grid-cols-3 gap-[3px] mb-[3px]">
         {[
           'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61715726e203877b181cfc17_228A4051%201_Small_01.png',
           'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617160e66a256eba20753652_228A4098%201_small.jpg',
