@@ -143,13 +143,11 @@ export default function HummingGrovePage() {
           transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
           viewport={{ once: true }}
         >
-          <div className="bg-[#f5f0e8] rounded-2xl px-10 py-8 md:px-14 md:py-10 shadow-[0_0_60px_rgba(0,0,0,0.4)]">
-            <img
-              src="/images/hg/hg-logo.jpeg"
-              alt="The Humming Grove — The Earth Project"
-              className="w-36 md:w-52 object-contain"
-            />
-          </div>
+          <img
+            src="/hg.png"
+            alt="The Humming Grove — The Earth Project"
+            className="w-40 md:w-60 object-contain"
+          />
           <p className="text-whisper text-stone-grey/40 text-[0.48rem] tracking-ultra">CHAPTER II — THE HUMMING GROVE</p>
         </motion.div>
       </div>
