@@ -100,7 +100,7 @@ export default function HummingGrovePage() {
           <img src="/logo.png" alt="The Earth Project" className="h-7 w-auto opacity-50 group-hover:opacity-80 transition-opacity duration-500"
             style={{ filter: 'invert(1) brightness(2)' }} />
         </Link>
-        <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra">CHAPTER I</p>
+        <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra">CHAPTER II</p>
       </div>
 
       {/* ── HERO ── */}
