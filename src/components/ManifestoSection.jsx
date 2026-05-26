@@ -74,8 +74,8 @@ const panels = [
     height: '85vh',
   },
   {
-    src: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6173e5524f9dce6f32eef7bd_Under%20The%20Canopy.jpg',
-    alt: 'Under the forest canopy, Sakleshpur',
+    src: '/images/hg/hg-070.jpg',
+    alt: 'Sunset aerial of The Humming Grove community',
     label: '04 — THE CHAPTER',
     text: 'Every project\nis a chapter.',
     align: 'right',
