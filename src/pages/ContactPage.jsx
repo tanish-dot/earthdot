@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE'
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1aAxdE99X-G0K4yeVVENWHNnF8J64dfZUsMFxcu7WpyB6sq68QFzgI97HjTGVo0hE/exec'
 
 // ── Data sourced from the chapters ──────────────────────────────────────────
 const chapters = [
