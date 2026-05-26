@@ -27,14 +27,14 @@ const homes = [
   {
     title: '3 BHK Chalet',
     size: 'Spacious',
-    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/64255cfd658b1d611af94b32_LITW-Progress_March00003.webp',
+    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61ac815a45ccb8b3807094f2_Chalet%2003BHK.png',
     desc: 'Three bedrooms, multiple courtyards, and expansive shared spaces. Designed for families who want room to breathe without the land ever feeling compromised.',
     features: ['Three bedroom-balcony suites', 'Multiple courtyards', 'Utility & powder room', 'Maximum natural light'],
   },
   {
     title: 'Capsule',
     size: 'Minimal',
-    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6192595b07cff04a108211d1_Img1.png',
+    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61a9a85b2be44959319e62cf_Capsule01%20Min.jpeg',
     desc: 'A compact 1 BHK capsule for those who want the least possible between themselves and the forest. Walk-in closet, combined living-kitchen, and a verandah to start every morning.',
     features: ['Combined living-kitchen', 'Walk-in closet', 'Covered verandah', 'Lightest land impact'],
   },
@@ -121,8 +121,8 @@ export default function LostInTheWoodsPage() {
 
       {/* ── HERO ── */}
       <ParallaxHero
-        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61715726e203877b181cfc17_228A4051%201_Small_01.png"
-        alt="Lost in the Woods — aerial view">
+        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6173e5524f9dce6f32eef7bd_Under%20The%20Canopy.jpg"
+        alt="Lost in the Woods — under the canopy">
         <div className="absolute inset-0 flex flex-col items-start justify-end px-5 md:px-20 pb-10 md:pb-20">
           <motion.p className="text-whisper text-ivory-dim text-[0.55rem] tracking-ultra mb-5"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}>
