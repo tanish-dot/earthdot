@@ -308,7 +308,7 @@ export default function ContactPage() {
                   { label: 'Instagram ↗', href: 'https://www.instagram.com/the.earthproject_/' },
                   { label: 'LinkedIn ↗', href: 'https://www.linkedin.com/company/theearthproject/' },
                   { label: 'YouTube ↗', href: 'https://www.youtube.com/@the_earthproject' },
-                  { label: 'Reddit ↗', href: 'https://www.reddit.com/user/theearth_project' },
+                  { label: 'Reddit ↗', href: 'https://www.reddit.com/u/The_EarthProject' },
                 ].map(s => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                     className="font-serif text-stone-grey text-sm font-light hover:text-ivory transition-colors duration-500">{s.label}</a>
