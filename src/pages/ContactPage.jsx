@@ -305,10 +305,10 @@ export default function ContactPage() {
               <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-6">FOLLOW</p>
               <div className="flex flex-col gap-3">
                 {[
-                  { label: 'Instagram ↗', href: 'https://www.instagram.com/the.earthproject_/' },
-                  { label: 'LinkedIn ↗', href: 'https://www.linkedin.com/company/theearthproject/' },
-                  { label: 'YouTube ↗', href: 'https://www.youtube.com/@the_earthproject' },
-                  { label: 'Reddit ↗', href: 'https://www.reddit.com/u/The_EarthProject' },
+                  { label: 'Instagram', href: 'https://www.instagram.com/the.earthproject_/' },
+                  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/theearthproject/' },
+                  { label: 'YouTube', href: 'https://www.youtube.com/@the_earthproject' },
+                  { label: 'Reddit', href: 'https://www.reddit.com/u/The_EarthProject' },
                 ].map(s => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                     className="font-serif text-stone-grey text-sm font-light hover:text-ivory transition-colors duration-500">{s.label}</a>
