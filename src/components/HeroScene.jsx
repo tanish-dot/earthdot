@@ -67,17 +67,6 @@ export default function HeroScene({ ready }) {
           </p>
         </motion.div>
 
-        {/* Chapter marker top-right */}
-        <motion.div
-          className="absolute top-8 right-8 md:right-16 z-[25] pointer-events-none flex flex-col items-end gap-1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: ready ? 1 : 0 }}
-          transition={{ duration: 1.5, delay: 1.8, ease: 'easeOut' }}
-        >
-          <span className="text-whisper text-ivory/25 text-[0.48rem] tracking-ultra">CHAPTERS</span>
-          <span className="font-serif text-ivory/50 text-xs font-light">I — III</span>
-        </motion.div>
-
         {/* ── Scroll cue ── */}
         <motion.div
           className="absolute bottom-8 right-6 md:right-16 z-[25] flex flex-col items-center gap-2 pointer-events-none"
