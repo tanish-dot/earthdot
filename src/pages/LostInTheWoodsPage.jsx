@@ -13,28 +13,28 @@ const homes = [
   {
     title: '1 BHK Chalet',
     size: 'Compact',
-    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61765104b5b59f20914ca8f7_Chalet_03.jpg',
+    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61924430c9027a17022b1eb9_Chalet%20Type%20A%20(1).png',
     desc: 'A single-bedroom prefabricated chalet built from steel — no digging, no disruption. Foyer, living, kitchen, dining, balcony, and a viewing deck that opens to the canopy.',
     features: ['Prefab steel construction', 'Viewing deck', 'Verandah & foyer', 'Minimal footprint'],
   },
   {
     title: '2 BHK Chalet',
     size: 'Mid',
-    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6172619e13b09822e82c137f_Unit-B.jpg',
+    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6192434006154e967a3e776d_Chalet%20Type%20B%20(Option%2001).png',
     desc: 'Two bedroom suites with private balconies, a shared living pavilion, and a kitchen designed around locally sourced produce. Sits lightly on the land.',
     features: ['Two private bedroom suites', 'Shared living pavilion', 'Courtyard option', 'Electric buggy access'],
   },
   {
     title: '3 BHK Chalet',
     size: 'Spacious',
-    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61726241e239c92636c8c511_clubhouse-01-p-1600.jpeg',
+    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/64255cfd658b1d611af94b32_LITW-Progress_March00003.webp',
     desc: 'Three bedrooms, multiple courtyards, and expansive shared spaces. Designed for families who want room to breathe without the land ever feeling compromised.',
     features: ['Three bedroom-balcony suites', 'Multiple courtyards', 'Utility & powder room', 'Maximum natural light'],
   },
   {
     title: 'Capsule',
     size: 'Minimal',
-    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6172619e13b098d8c52c1356_plot-division-05.jpg',
+    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6192595b07cff04a108211d1_Img1.png',
     desc: 'A compact 1 BHK capsule for those who want the least possible between themselves and the forest. Walk-in closet, combined living-kitchen, and a verandah to start every morning.',
     features: ['Combined living-kitchen', 'Walk-in closet', 'Covered verandah', 'Lightest land impact'],
   },
@@ -121,8 +121,8 @@ export default function LostInTheWoodsPage() {
 
       {/* ── HERO ── */}
       <ParallaxHero
-        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6172619e13b09800ca2c1350_Clubhouse_with-signage.jpg"
-        alt="The Watering Hole — Lost in the Woods">
+        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61715726e203877b181cfc17_228A4051%201_Small_01.png"
+        alt="Lost in the Woods — aerial view">
         <div className="absolute inset-0 flex flex-col items-start justify-end px-5 md:px-20 pb-10 md:pb-20">
           <motion.p className="text-whisper text-ivory-dim text-[0.55rem] tracking-ultra mb-5"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}>
