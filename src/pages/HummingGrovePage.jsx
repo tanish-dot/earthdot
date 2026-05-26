@@ -134,6 +134,26 @@ export default function HummingGrovePage() {
         </div>
       </Section>
 
+      {/* ── CHAPTER EMBLEM ── */}
+      <div className="flex items-center justify-center py-14 md:py-20 border-b border-stone/20">
+        <motion.div
+          className="flex flex-col items-center gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+          viewport={{ once: true }}
+        >
+          <div className="bg-[#f5f0e8] rounded-2xl px-10 py-8 md:px-14 md:py-10 shadow-[0_0_60px_rgba(0,0,0,0.4)]">
+            <img
+              src="/images/hg/hg-logo.jpeg"
+              alt="The Humming Grove — The Earth Project"
+              className="w-36 md:w-52 object-contain"
+            />
+          </div>
+          <p className="text-whisper text-stone-grey/40 text-[0.48rem] tracking-ultra">CHAPTER II — THE HUMMING GROVE</p>
+        </motion.div>
+      </div>
+
       {/* ── OVERVIEW ── */}
       <div className="max-w-7xl mx-auto px-5 md:px-20 py-14 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
         <Section>
