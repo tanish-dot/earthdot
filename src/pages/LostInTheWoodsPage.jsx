@@ -120,7 +120,9 @@ export default function LostInTheWoodsPage() {
       </div>
 
       {/* ── HERO ── */}
-      <ParallaxHero src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617651043776fe3b483237b5_Chalet_02.jpg" alt="Lost in the Woods chalet">
+      <ParallaxHero
+        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6174fc89d355d921c7e90790_The%20Mist.jpg"
+        alt="Mist over Lost in the Woods forest">
         <div className="absolute inset-0 flex flex-col items-start justify-end px-5 md:px-20 pb-10 md:pb-20">
           <motion.p className="text-whisper text-ivory-dim text-[0.55rem] tracking-ultra mb-5"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}>
@@ -132,7 +134,7 @@ export default function LostInTheWoodsPage() {
           </motion.h1>
           <motion.p className="font-serif text-ivory-dim text-lg md:text-2xl font-light italic mt-6 max-w-lg"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.9 }}>
-            Where life and land remain untouched.
+            Sakleshpur, Western Ghats — 1,000m above the ordinary.
           </motion.p>
         </div>
       </ParallaxHero>
@@ -141,47 +143,70 @@ export default function LostInTheWoodsPage() {
       <Section className="border-b border-stone">
         <div className="grid grid-cols-2 md:grid-cols-4 max-w-7xl mx-auto">
           {stats.map((s, i) => (
-            <div key={s.label} className={`px-10 md:px-14 py-10 flex flex-col gap-2 ${i < 3 ? 'border-b md:border-b-0 md:border-r border-stone' : ''}`}>
-              <span className="font-serif text-ivory font-light" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)' }}>{s.value}</span>
+            <div key={s.label} className={`px-6 md:px-14 py-8 md:py-10 flex flex-col gap-2 ${i < 3 ? 'border-b md:border-b-0 md:border-r border-stone' : ''} ${i % 2 === 0 && i !== 2 ? 'border-r md:border-r-0 border-stone' : ''}`}>
+              <span className="font-serif text-ivory font-light" style={{ fontSize: 'clamp(1.6rem, 3.5vw, 3rem)' }}>{s.value}</span>
               <span className="text-whisper text-forest-glow text-[0.5rem] tracking-ultra">{s.unit}</span>
-              <span className="font-serif text-stone-grey text-sm font-light">{s.label}</span>
+              <span className="font-serif text-stone-grey text-xs md:text-sm font-light">{s.label}</span>
             </div>
           ))}
         </div>
       </Section>
 
       {/* ── OVERVIEW ── */}
-      <div ref={sectionRef} className="max-w-7xl mx-auto px-5 md:px-20 py-14 md:py-28 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
-        <Section>
-          <p className="text-whisper text-forest-glow tracking-ultra text-[0.55rem] mb-6">SAKLESHPUR — NILGIRI BIOSPHERE RESERVE</p>
-          <p className="font-serif text-ivory text-2xl md:text-3xl font-light leading-relaxed">
-            36.68 acres of pristine Western Ghats forest. Untouched, undiminished, and designed to stay that way.
-          </p>
-          <p className="font-serif text-stone-grey text-base font-light leading-relaxed mt-8">
-            Lost in the Woods sits inside the Nilgiri Biosphere Reserve at an elevation between 1030 and 1170 metres. The land was not cleared. It was carefully entered. Every plot was positioned around what already existed — the trees, the trails, the birdsong, the silence. What was built here was the minimum necessary to make it liveable without making it ordinary.
-          </p>
-          <p className="font-serif text-stone-grey text-base font-light leading-relaxed mt-4">
-            Fuel-powered vehicles are prohibited. Paths are walked or cycled. The light that arrives each morning is filtered through 30+ species of trees. This is not a gated community. It is a guarded ecosystem that happens to have homes inside it.
-          </p>
-        </Section>
-        <Section>
-          <ParallaxImage src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61715debca026fbefe8b70f2_Prestine%20Land_small.jpg" alt="Pristine land" height="55vh" inView={true} />
-        </Section>
+      <div ref={sectionRef}>
+        {/* Full-width image — strong visual first, works great on mobile */}
+        <div className="relative overflow-hidden" style={{ height: 'clamp(260px, 65vw, 70vh)' }}>
+          <img
+            src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617160e66a256eba20753652_228A4098%201_small.jpg"
+            alt="Western Ghats forest"
+            className="w-full h-full object-cover"
+            style={{ filter: 'brightness(0.75)' }}
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(8,8,8,0.85) 100%)' }} />
+          <div className="absolute bottom-6 left-5 md:bottom-10 md:left-14">
+            <p className="text-whisper text-ivory/50 text-[0.5rem] tracking-ultra">SAKLESHPUR — NILGIRI BIOSPHERE RESERVE</p>
+          </div>
+        </div>
+
+        {/* Copy block */}
+        <div className="max-w-7xl mx-auto px-5 md:px-20 py-12 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 items-start">
+          <Section>
+            <p className="font-serif text-ivory text-2xl md:text-3xl font-light leading-relaxed">
+              36.68 acres of Western Ghats forest. Not cleared. Carefully entered.
+            </p>
+          </Section>
+          <Section className="flex flex-col gap-5">
+            <p className="font-serif text-stone-grey text-base font-light leading-relaxed">
+              Every plot was positioned around what already existed — the trees, the trails, the birdsong, the silence. What was built here was the minimum necessary to make it liveable without making it ordinary.
+            </p>
+            <p className="font-serif text-stone-grey text-base font-light leading-relaxed">
+              Fuel-powered vehicles are prohibited inside. You arrive, then you walk, cycle, or take an electric buggy. The forest stays quiet. The mist stays low.
+            </p>
+            <div className="flex items-center gap-4 pt-2">
+              <div className="w-5 h-[1px] bg-forest-glow opacity-50" />
+              <p className="text-whisper text-ivory/40 text-[0.52rem] tracking-ultra">ELEVATION 1,030 – 1,170 M</p>
+            </div>
+          </Section>
+        </div>
       </div>
 
-      {/* ── FULL BLEED ── */}
-      <div className="relative overflow-hidden" style={{ height: '85vh' }}>
-        <img src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6173e5524f9dce6f32eef7bd_Under%20The%20Canopy.jpg" alt="Under the canopy"
-          className="absolute inset-0 w-full h-full object-cover" style={{ filter: 'brightness(0.5)' }} />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8"
-          style={{ background: 'rgba(8,8,8,0.3)' }}>
+      {/* ── FULL BLEED PHILOSOPHY ── */}
+      <div className="relative overflow-hidden" style={{ height: 'clamp(320px, 80vw, 85vh)' }}>
+        <img
+          src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61715debca026fbefe8b70f2_Prestine%20Land_small.jpg"
+          alt="Pristine forest land"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: 'brightness(0.45)' }}
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+          style={{ background: 'rgba(8,8,8,0.25)' }}>
           <Section>
             <p className="text-whisper text-ivory/40 text-[0.52rem] tracking-ultra mb-6">THE PHILOSOPHY</p>
-            <h2 className="font-serif text-ivory font-light max-w-3xl mx-auto"
-              style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
+            <h2 className="font-serif text-ivory font-light max-w-2xl mx-auto"
+              style={{ fontSize: 'clamp(1.8rem, 4.5vw, 4.5rem)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
               "Change is elemental."
             </h2>
-            <p className="font-serif text-ivory/60 text-lg font-light italic mt-6 max-w-xl mx-auto">
+            <p className="font-serif text-ivory/55 text-base md:text-lg font-light italic mt-5 max-w-sm md:max-w-xl mx-auto leading-relaxed">
               Away from concrete jungles, polluted air, and unnatural neighbourhoods — toward the land.
             </p>
           </Section>
