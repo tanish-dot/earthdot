@@ -102,17 +102,6 @@ export default function ManifestoSection() {
             height={panel.height || '95vh'}
             overlay={panel.overlay}
           >
-            {/* Label */}
-            <motion.p
-              className={`absolute top-8 text-whisper text-ivory/40 text-[0.5rem] tracking-ultra ${panel.align === 'right' ? 'right-8 md:right-14' : 'left-8 md:left-14'}`}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              {panel.label}
-            </motion.p>
-
             {/* Main text */}
             <div className={`absolute bottom-8 md:bottom-14 ${panel.align === 'right' ? 'right-5 md:right-14 text-right' : 'left-5 md:left-14 text-left'}`}>
               <motion.p
