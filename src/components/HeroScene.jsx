@@ -36,6 +36,7 @@ export default function HeroScene({ ready }) {
           <video
             key={isMobile ? 'mobile' : 'desktop'}
             src={isMobile ? '/video-mobile.mp4' : '/video.mp4'}
+            poster="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61715726e203877b181cfc17_228A4051%201_Small_01.png"
             autoPlay
             loop
             muted
