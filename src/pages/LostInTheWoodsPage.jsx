@@ -34,7 +34,7 @@ const homes = [
   {
     title: 'Capsule',
     size: 'Minimal',
-    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/619247a63dee3be1d5703980_The%20Mist%2002.png',
+    img: 'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6172619e13b098d8c52c1356_plot-division-05.jpg',
     desc: 'A compact 1 BHK capsule for those who want the least possible between themselves and the forest. Walk-in closet, combined living-kitchen, and a verandah to start every morning.',
     features: ['Combined living-kitchen', 'Walk-in closet', 'Covered verandah', 'Lightest land impact'],
   },
@@ -121,8 +121,8 @@ export default function LostInTheWoodsPage() {
 
       {/* ── HERO ── */}
       <ParallaxHero
-        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6174fc89d355d921c7e90790_The%20Mist.jpg"
-        alt="Mist over Lost in the Woods forest">
+        src="https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6172619e13b09800ca2c1350_Clubhouse_with-signage.jpg"
+        alt="The Watering Hole — Lost in the Woods">
         <div className="absolute inset-0 flex flex-col items-start justify-end px-5 md:px-20 pb-10 md:pb-20">
           <motion.p className="text-whisper text-ivory-dim text-[0.55rem] tracking-ultra mb-5"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }}>
@@ -236,7 +236,7 @@ export default function LostInTheWoodsPage() {
       {/* ── IMAGE TRIO ── */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-[3px] mb-[3px]">
         {[
-          'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6174fc89d355d921c7e90790_The%20Mist.jpg',
+          'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/61715726e203877b181cfc17_228A4051%201_Small_01.png',
           'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/617160e66a256eba20753652_228A4098%201_small.jpg',
           'https://cdn.prod.website-files.com/616fdbac1d11cf0e458f443e/6172619e13b098d8c52c1356_plot-division-05.jpg',
         ].map((src, i) => (
