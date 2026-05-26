@@ -16,6 +16,7 @@ import LostInTheWoods from './components/LostInTheWoods'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import Particles from './components/Particles'
+import FloatingEnquire from './components/FloatingEnquire'
 const HummingGrovePage = lazy(() => import('./pages/HummingGrovePage'))
 const SoulSpringsPage = lazy(() => import('./pages/SoulSpringsPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
@@ -95,6 +96,7 @@ export default function App() {
     <>
       <Particles />
 <Cursor />
+      <FloatingEnquire />
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<HomePage loaded={loaded} setLoaded={setLoaded} />} />
