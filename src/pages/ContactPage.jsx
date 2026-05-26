@@ -1,7 +1,8 @@
 import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { supabase } from '../lib/supabase'
+
+const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE'
 
 // ── Data sourced from the chapters ──────────────────────────────────────────
 const chapters = [
@@ -64,17 +65,25 @@ export default function ContactPage() {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    if (!supabase) { setStatus('error'); return }
     setStatus('sending')
-    const { error } = await supabase.from('enquiries').insert([{
-      name: form.name,
-      email: form.email,
-      phone: form.phone,
-      chapter: form.chapter,
-      enquiry_type: form.type,
-      message: form.message,
-    }])
-    setStatus(error ? 'error' : 'success')
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          chapter: form.chapter,
+          type: form.type,
+          message: form.message,
+        }),
+      })
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
