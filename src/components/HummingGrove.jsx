@@ -72,14 +72,14 @@ export default function HummingGrove() {
           <motion.p className="font-serif text-ivory text-2xl md:text-3xl font-light leading-relaxed"
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 30 }}
             transition={{ delay: 0.4, duration: 1 }}>
-            Villa plots of 600 & 400 sq yds across 12.46 acres in the Ananthagiri Hills. Shaded streets, forest frontage, 30 min from Hyderabad.
+            Plots ranging from 400 to 600 Sq. Yds across 12.46 acres in the Ananthagiri Hills. Shaded streets, forest frontage, 30 min from Hyderabad.
           </motion.p>
           {/* Long copy — desktop only */}
           <motion.p className="hidden md:block font-serif text-stone-grey text-base font-light leading-relaxed"
             initial={{ opacity: 0 }} animate={{ opacity: inView ? 0.7 : 0 }} transition={{ delay: 0.6, duration: 1 }}>
             The community brings together the comfort of private plots with the calmness of a nature sanctuary. 12.46 acres where the land is the main organizing layer — not an afterthought.
           </motion.p>
-          <StatRow items={[{ v: '12.46', l: 'ACRES' }, { v: '600 & 400', l: 'SQ YARDS' }, { v: '100%', l: 'NATURE-LED' }]} inView={inView} />
+          <StatRow items={[{ v: '12.46', l: 'ACRES' }, { v: '400–600', l: 'SQ. YDS.' }, { v: '100%', l: 'NATURE-LED' }]} inView={inView} />
           {/* Mobile CTA */}
           <motion.div className="md:hidden pt-2"
             initial={{ opacity: 0 }} animate={{ opacity: inView ? 1 : 0 }} transition={{ duration: 1, delay: 0.9 }}>
@@ -108,29 +108,15 @@ export default function HummingGrove() {
         </FullBleedImage>
       </div>
 
-      {/* ── ARCHITECTURE TRIO — desktop only ── */}
+      {/* ── ARCHITECTURE — desktop only ── */}
       <div className="hidden md:block">
-        <div className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-2">
-          <div className="md:col-span-2">
-            <ParallaxImage src="/images/hg/hg-105.jpg" alt="Arched villa at dusk" height="75vh" inView={inView} delay={0}>
-              <div className="absolute bottom-8 left-8">
-                <p className="text-whisper text-ivory-dim text-[0.55rem] tracking-widest mb-1">600 SQYDS — ELEVATION I</p>
-                <p className="font-serif text-ivory text-xl font-light italic">Arched. Grounded. Open to sky.</p>
-              </div>
-            </ParallaxImage>
-          </div>
-          <div className="flex flex-col gap-2">
-            <ParallaxImage src="/images/hg/hg-106.jpg" alt="Modern villa at dusk" height="36.5vh" inView={inView} delay={0.1}>
-              <div className="absolute bottom-5 left-6">
-                <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">600 SQYDS — ELEVATION II</p>
-              </div>
-            </ParallaxImage>
-            <ParallaxImage src="/images/hg/hg-111.jpg" alt="Modern villa daytime" height="36.5vh" inView={inView} delay={0.2}>
-              <div className="absolute bottom-5 left-6">
-                <p className="text-whisper text-ivory-dim text-[0.5rem] tracking-widest">400 SQYDS — ELEVATION I</p>
-              </div>
-            </ParallaxImage>
-          </div>
+        <div className="mt-2">
+          <ParallaxImage src="/images/hg/hg-105.jpg" alt="Arched villa at dusk" height="75vh" inView={inView} delay={0}>
+            <div className="absolute bottom-8 left-8">
+              <p className="text-whisper text-ivory-dim text-[0.55rem] tracking-widest mb-1">PLOTS RANGING FROM 400 TO 600 SQ. YDS.</p>
+              <p className="font-serif text-ivory text-xl font-light italic">Arched. Grounded. Open to sky.</p>
+            </div>
+          </ParallaxImage>
         </div>
       </div>
 

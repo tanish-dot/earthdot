@@ -315,6 +315,13 @@ export default function SoulSpringsPage() {
               className="font-serif text-ivory text-2xl md:text-3xl font-light hover:text-ivory-dim transition-colors duration-500">
               Tepindiaofficial@gmail.com
             </a>
+            <a href="/ss-brochure.pdf" download
+              className="flex items-center gap-3 text-whisper text-ivory/70 hover:text-ivory text-[0.6rem] tracking-ultra transition-colors duration-500">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              DOWNLOAD BROCHURE
+            </a>
             <div className="flex items-center gap-3">
               <div className="w-8 h-[1px] bg-muted-olive" />
               <p className="text-whisper text-stone-grey text-[0.5rem] tracking-ultra">LIMITED PLOTS REMAINING</p>

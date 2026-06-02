@@ -24,7 +24,7 @@ const chapters = [
     to: '/humming-grove',
     img: '/images/hg/hg-102.jpg',
     tagline: 'Where every home feels private, every street feels shaded.',
-    stats: ['12.46 Acres', '600 & 400 Sq Yards', '100% Nature-Led', 'Ananthagiri Hills'],
+    stats: ['12.46 Acres', '400–600 Sq. Yds.', '100% Nature-Led', 'Ananthagiri Hills'],
   },
   {
     num: 'III',

@@ -330,7 +330,7 @@ export default function LostInTheWoodsPage() {
               style={{ fontSize: 'clamp(2.2rem, 5vw, 5rem)', lineHeight: 1.05, letterSpacing: '-0.02em' }}>
               Get lost.<br /><em>Stay found.</em>
             </h2>
-            <div className="flex items-center gap-4 mt-10 justify-center">
+            <div className="flex items-center gap-4 mt-10">
               <div className="w-12 h-[1px] bg-ivory/25" />
               <Link to="/contact" className="text-whisper text-ivory/50 hover:text-ivory text-[0.52rem] tracking-ultra transition-colors duration-500">
                 BEGIN YOUR CHAPTER

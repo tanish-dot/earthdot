@@ -5,8 +5,8 @@ import ChapterFooter from '../components/ChapterFooter'
 
 const stats = [
   { value: '12.46', unit: 'ACRES', label: 'Total Land' },
-  { value: '600 & 400', unit: 'SQ YARDS', label: 'Plot Sizes' },
-  { value: '2', unit: 'ELEVATIONS', label: 'Villa Types' },
+  { value: '400–600', unit: 'SQ. YDS.', label: 'Plot Range' },
+  { value: 'Move-In', unit: 'READY', label: 'Villas' },
   { value: '100%', unit: 'NATURE-LED', label: 'Design Principle' },
 ]
 
@@ -25,37 +25,17 @@ const amenities = [
   { name: '24/7 Security', desc: 'Perimeter protection that fades into the landscape' },
 ]
 
-const elevations = [
-  {
-    id: 'I',
-    title: 'Elevation I — The Arch',
-    size: '600 Sq Yards',
-    img: '/images/hg/hg-105.jpg',
-    desc: 'A villa defined by its arched entrance — open to sky, grounded in earth. Stone-textured walls, double-height ceilings inside the arch, and a private courtyard that draws the forest in. Designed for families who want presence, not just space.',
-    features: ['Private walled courtyard', 'Double-height arched foyer', 'Stone & terracotta facade', 'Floor-to-ceiling glazing', 'Integrated landscape planting'],
-  },
-  {
-    id: 'II',
-    title: 'Elevation II — The Frame',
-    size: '600 Sq Yards',
-    img: '/images/hg/hg-106.jpg',
-    desc: 'A contemporary frame villa — minimal lines, maximal connection to the outdoors. Large glass panels frame the landscape like a living painting. Designed for those who want clarity, openness, and a seamless inside-outside existence.',
-    features: ['Open-plan living pavilion', 'Floor-to-ceiling glazed walls', 'Flat rooftop terrace', 'Dark steel & concrete palette', 'Private garden with lap pool option'],
-  },
-  {
-    id: 'III',
-    title: 'Elevation III — The Compact',
-    size: '400 Sq Yards',
-    img: '/images/hg/hg-111.jpg',
-    desc: 'A smaller footprint with no compromise on character. Pitched roof, warm terracotta tones, and a generous garden that wraps the home. Every detail is considered — this is retreat living distilled to its most essential form.',
-    features: ['Compact luxury layout', 'Pitched roof with overhang', 'Wraparound garden', 'Natural material palette', 'Covered outdoor seating area'],
-  },
-]
+const elevation = {
+  title: 'The Arch',
+  size: 'Plots ranging from 400 to 600 Sq. Yds',
+  img: '/images/hg/hg-105.jpg',
+  desc: 'A villa defined by its arched entrance — open to sky, grounded in earth. Stone-textured walls, double-height ceilings inside the arch, and a private courtyard that draws the forest in. Designed for families who want presence, not just space.',
+  features: ['Private walled courtyard', 'Double-height arched foyer', 'Stone & terracotta facade', 'Floor-to-ceiling glazing', 'Integrated landscape planting'],
+}
 
 const designPillars = [
   { label: 'LAND-FIRST PLANNING', body: 'Every plot was positioned after the trees were mapped. Roads follow contours. Nothing was bulldozed that didn\'t need to be.' },
   { label: 'PRIVATE STREETS', body: 'Internal roads are shaded by trees on both sides. No plot faces another directly. Designed so you feel alone even in community.' },
-  { label: 'ELEVATION DIVERSITY', body: 'No two elevations are the same. Three architectural typologies ensure the community never feels like a project.' },
   { label: 'BIOPHILIC MATERIALS', body: 'Stone, terracotta, wood, glass. Nothing synthetic on the facade. The homes age with the land, not against it.' },
   { label: 'WATER MANAGEMENT', body: 'Rainwater harvesting, percolation pits, and a natural swale system. The community returns what it takes from the ground.' },
   { label: 'DARK SKY LIGHTING', body: 'All common area lighting is pointed downward, amber-toned, and motion-triggered. The stars remain visible from every plot.' },
@@ -202,7 +182,7 @@ export default function HummingGrovePage() {
         </Section>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
-            { dist: '65 KM', label: 'From Hyderabad city centre', note: 'Via NH44 — approx 90 minutes' },
+            { dist: '65 KM', label: 'From Hyderabad city centre', note: 'Via NH 163 — approx 90 minutes' },
             { dist: '28 KM', label: 'From Shamshabad Airport', note: 'Direct route through Vikarabad highway' },
             { dist: '3,200 FT', label: 'Above sea level', note: 'Year-round cooler temperatures, misty mornings' },
           ].map(d => (
@@ -215,47 +195,43 @@ export default function HummingGrovePage() {
         </div>
       </div>
 
-      {/* ── ARCHITECTURE ELEVATIONS ── */}
+      {/* ── ARCHITECTURE ELEVATION ── */}
       <div className="border-t border-stone py-24">
         <div className="max-w-7xl mx-auto px-8 md:px-20">
           <Section className="mb-16">
             <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-6">ARCHITECTURE</p>
             <h2 className="text-display text-ivory" style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', lineHeight: 0.88 }}>
-              Three elevations.<br /><em>One language.</em>
+              The elevation.<br /><em>One language.</em>
             </h2>
           </Section>
         </div>
 
-        <div className="flex flex-col gap-2">
-          {elevations.map((el, i) => (
-            <div key={el.id} className={`grid grid-cols-1 md:grid-cols-2 gap-0 ${i % 2 === 1 ? 'md:grid-flow-dense' : ''}`}>
-              {/* Image */}
-              <div className={`relative overflow-hidden ${i % 2 === 1 ? 'md:col-start-2' : ''}`} style={{ height: '70vh' }}>
-                <img src={el.img} alt={el.title}
-                  className="absolute inset-x-0 w-full h-full object-cover object-center" style={{ top: 0 }} />
-                <div className="absolute inset-0" style={{ background: 'rgba(8,8,8,0.15)' }} />
-                <div className="absolute bottom-8 left-8">
-                  <span className="text-whisper text-ivory-dim text-[0.6rem] tracking-ultra">ELEVATION {el.id}</span>
-                </div>
-              </div>
-              {/* Text */}
-              <div className={`flex flex-col justify-center px-10 md:px-16 py-16 bg-charcoal gap-8 ${i % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
-                <Section>
-                  <p className="text-whisper text-forest-glow text-[0.5rem] tracking-ultra mb-4">{el.size}</p>
-                  <h3 className="text-display text-ivory mb-6" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', lineHeight: 0.9 }}>{el.title}</h3>
-                  <p className="font-serif text-stone-grey text-base font-light leading-relaxed mb-8">{el.desc}</p>
-                  <div className="flex flex-col gap-3">
-                    {el.features.map(f => (
-                      <div key={f} className="flex items-center gap-4">
-                        <div className="w-4 h-[1px] bg-muted-olive flex-shrink-0" />
-                        <p className="font-serif text-ivory-dim text-sm font-light">{f}</p>
-                      </div>
-                    ))}
-                  </div>
-                </Section>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+          {/* Image */}
+          <div className="relative overflow-hidden" style={{ height: '70vh' }}>
+            <img src={elevation.img} alt={elevation.title}
+              className="absolute inset-x-0 w-full h-full object-cover object-center" style={{ top: 0 }} />
+            <div className="absolute inset-0" style={{ background: 'rgba(8,8,8,0.15)' }} />
+            <div className="absolute bottom-8 left-8">
+              <span className="text-whisper text-ivory-dim text-[0.6rem] tracking-ultra">THE ARCH</span>
             </div>
-          ))}
+          </div>
+          {/* Text */}
+          <div className="flex flex-col justify-center px-10 md:px-16 py-16 bg-charcoal gap-8">
+            <Section>
+              <p className="text-whisper text-forest-glow text-[0.5rem] tracking-ultra mb-4">{elevation.size}</p>
+              <h3 className="text-display text-ivory mb-6" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)', lineHeight: 0.9 }}>{elevation.title}</h3>
+              <p className="font-serif text-stone-grey text-base font-light leading-relaxed mb-8">{elevation.desc}</p>
+              <div className="flex flex-col gap-3">
+                {elevation.features.map(f => (
+                  <div key={f} className="flex items-center gap-4">
+                    <div className="w-4 h-[1px] bg-muted-olive flex-shrink-0" />
+                    <p className="font-serif text-ivory-dim text-sm font-light">{f}</p>
+                  </div>
+                ))}
+              </div>
+            </Section>
+          </div>
         </div>
       </div>
 
@@ -380,10 +356,24 @@ export default function HummingGrovePage() {
               Plots are available for discovery. Not for sale — for belonging. Reach out to begin a conversation.
             </p>
           </Section>
-          <Section className="flex flex-col gap-5">
+          <Section className="flex flex-col gap-6">
             <a href="mailto:Tepindiaofficial@gmail.com"
               className="font-serif text-ivory text-2xl md:text-3xl font-light hover:text-ivory-dim transition-colors duration-500">
               Tepindiaofficial@gmail.com
+            </a>
+            <a href="https://wa.me/919000102744" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-3 text-whisper text-ivory/70 hover:text-ivory text-[0.6rem] tracking-ultra transition-colors duration-500 group">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-forest-glow flex-shrink-0">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              WHATSAPP US
+            </a>
+            <a href="/hg-brochure.pdf" download
+              className="flex items-center gap-3 text-whisper text-ivory/70 hover:text-ivory text-[0.6rem] tracking-ultra transition-colors duration-500 group">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+              DOWNLOAD BROCHURE
             </a>
             <div className="flex items-center gap-3">
               <div className="w-8 h-[1px] bg-muted-olive" />
