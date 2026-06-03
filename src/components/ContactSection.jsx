@@ -21,6 +21,7 @@ export default function ContactSection() {
   ]
 
   return (
+    <>
     <section
       id="contact"
       ref={ref}
@@ -193,5 +194,6 @@ export default function ContactSection() {
       brochureFile={brochureModal.file}
       brochureLabel={brochureModal.label}
     />
+    </>
   )
 }
