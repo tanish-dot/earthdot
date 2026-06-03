@@ -28,7 +28,7 @@ const amenities = [
 const elevation = {
   title: 'The Arch',
   size: 'Plots ranging from 400 to 600 Sq. Yds',
-  img: '/images/hg/hg-105.jpg',
+  img: '/images/hg/hg-elevation-front.jpg',
   desc: 'A villa defined by its arched entrance — open to sky, grounded in earth. Stone-textured walls, double-height ceilings inside the arch, and a private courtyard that draws the forest in. Designed for families who want presence, not just space.',
   features: ['Private walled courtyard', 'Double-height arched foyer', 'Stone & terracotta facade', 'Floor-to-ceiling glazing', 'Integrated landscape planting'],
 }
