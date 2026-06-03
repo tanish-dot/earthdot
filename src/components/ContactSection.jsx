@@ -1,11 +1,16 @@
 import { useRef, useState } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import BrochureModal from './BrochureModal'
 
 export default function ContactSection() {
   const ref = useRef()
   const imgRef = useRef()
   const inView = useInView(ref, { once: true, margin: '-15%' })
   const [hoveredProject, setHoveredProject] = useState(null)
+  const [brochureModal, setBrochureModal] = useState({ open: false, file: '', label: '' })
+
+  const openBrochure = (file, label) => setBrochureModal({ open: true, file, label })
+  const closeBrochure = () => setBrochureModal(m => ({ ...m, open: false }))
   const { scrollYProgress } = useScroll({ target: imgRef, offset: ['start end', 'end start'] })
   const parallaxY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%'])
 
@@ -119,20 +124,22 @@ export default function ContactSection() {
               </a>
               {/* Download Brochure links */}
               <div className="flex flex-col gap-1 mt-1">
-                <a href="/hg-brochure.pdf" download
+                <button
+                  onClick={() => openBrochure('/hg-brochure.pdf', 'Humming Grove')}
                   className="flex items-center gap-3 text-whisper text-stone-grey hover:text-ivory text-[0.6rem] tracking-widest transition-colors duration-500">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
                     <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
                   </svg>
                   DOWNLOAD HG BROCHURE
-                </a>
-                <a href="/ss-brochure.pdf" download
+                </button>
+                <button
+                  onClick={() => openBrochure('/ss-brochure.pdf', 'Soul Springs')}
                   className="flex items-center gap-3 text-whisper text-stone-grey hover:text-ivory text-[0.6rem] tracking-widest transition-colors duration-500">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
                     <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
                   </svg>
                   DOWNLOAD SS BROCHURE
-                </a>
+                </button>
               </div>
             </div>
 
@@ -179,5 +186,12 @@ export default function ContactSection() {
         </motion.div>
       </div>
     </section>
+
+    <BrochureModal
+      isOpen={brochureModal.open}
+      onClose={closeBrochure}
+      brochureFile={brochureModal.file}
+      brochureLabel={brochureModal.label}
+    />
   )
 }

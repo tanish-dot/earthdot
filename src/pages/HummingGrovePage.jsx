@@ -1,7 +1,8 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import ChapterFooter from '../components/ChapterFooter'
+import BrochureModal from '../components/BrochureModal'
 
 const stats = [
   { value: '12.46', unit: 'ACRES', label: 'Total Land' },
@@ -67,6 +68,9 @@ function Section({ children, className = '' }) {
 
 export default function HummingGrovePage() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
+  const [brochureModal, setBrochureModal] = useState({ open: false, file: '', label: '' })
+  const openBrochure = () => setBrochureModal({ open: true, file: '/hg-brochure.pdf', label: 'Humming Grove' })
+  const closeBrochure = () => setBrochureModal(m => ({ ...m, open: false }))
 
   return (
     <div className="bg-void min-h-screen">
@@ -368,13 +372,14 @@ export default function HummingGrovePage() {
               </svg>
               WHATSAPP US
             </a>
-            <a href="/hg-brochure.pdf" download
+            <button
+              onClick={openBrochure}
               className="flex items-center gap-3 text-whisper text-ivory/70 hover:text-ivory text-[0.6rem] tracking-ultra transition-colors duration-500 group">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
               </svg>
               DOWNLOAD BROCHURE
-            </a>
+            </button>
             <div className="flex items-center gap-3">
               <div className="w-8 h-[1px] bg-muted-olive" />
               <p className="text-whisper text-stone-grey text-[0.5rem] tracking-ultra">LIMITED PLOTS REMAINING</p>
@@ -385,6 +390,12 @@ export default function HummingGrovePage() {
 
       <ChapterFooter current="hg" />
 
+      <BrochureModal
+        isOpen={brochureModal.open}
+        onClose={closeBrochure}
+        brochureFile={brochureModal.file}
+        brochureLabel={brochureModal.label}
+      />
     </div>
   )
 }
