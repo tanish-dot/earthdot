@@ -261,7 +261,7 @@ export default function ContactPage() {
 
               {status === 'error' && (
                 <p className="text-whisper text-red-400/70 text-[0.48rem] tracking-widest">
-                  Something went wrong. Please email us directly at Tepindiaofficial@gmail.com
+                  Something went wrong. Please email us directly at contact@earthproject.in
                 </p>
               )}
 
@@ -279,9 +279,9 @@ export default function ContactPage() {
 
             <div>
               <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-6">DIRECT CONTACT</p>
-              <a href="mailto:Tepindiaofficial@gmail.com"
+              <a href="mailto:contact@earthproject.in"
                 className="font-serif text-ivory text-xl md:text-2xl font-light hover:text-ivory/70 transition-colors duration-500 block mb-3">
-                Tepindiaofficial@gmail.com
+                contact@earthproject.in
               </a>
               <a href="tel:+919999999999"
                 className="font-serif text-stone-grey text-base font-light hover:text-ivory transition-colors duration-500 block mb-8">

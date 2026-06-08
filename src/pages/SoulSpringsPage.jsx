@@ -315,9 +315,9 @@ export default function SoulSpringsPage() {
             </p>
           </Section>
           <Section className="flex flex-col gap-5">
-            <a href="mailto:Tepindiaofficial@gmail.com"
+            <a href="mailto:contact@earthproject.in"
               className="font-serif text-ivory text-2xl md:text-3xl font-light hover:text-ivory-dim transition-colors duration-500">
-              Tepindiaofficial@gmail.com
+              contact@earthproject.in
             </a>
             <button
               onClick={openBrochure}

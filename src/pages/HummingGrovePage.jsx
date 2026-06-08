@@ -361,9 +361,9 @@ export default function HummingGrovePage() {
             </p>
           </Section>
           <Section className="flex flex-col gap-6">
-            <a href="mailto:Tepindiaofficial@gmail.com"
+            <a href="mailto:contact@earthproject.in"
               className="font-serif text-ivory text-2xl md:text-3xl font-light hover:text-ivory-dim transition-colors duration-500">
-              Tepindiaofficial@gmail.com
+              contact@earthproject.in
             </a>
             <a href="https://wa.me/919000102744" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-3 text-whisper text-ivory/70 hover:text-ivory text-[0.6rem] tracking-ultra transition-colors duration-500 group">

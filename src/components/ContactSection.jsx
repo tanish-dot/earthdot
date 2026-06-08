@@ -110,10 +110,10 @@ export default function ContactSection() {
             <div className="flex flex-col gap-2">
               <p className="text-whisper text-stone-grey text-[0.6rem] tracking-widest">ENQUIRE</p>
               <a
-                href="mailto:Tepindiaofficial@gmail.com"
+                href="mailto:contact@earthproject.in"
                 className="font-serif text-ivory text-2xl md:text-3xl font-light hover:text-ivory-dim transition-colors duration-500"
               >
-                Tepindiaofficial@gmail.com
+                contact@earthproject.in
               </a>
               {/* WhatsApp */}
               <a href="https://wa.me/919000102744" target="_blank" rel="noopener noreferrer"
