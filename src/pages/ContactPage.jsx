@@ -283,10 +283,6 @@ export default function ContactPage() {
                 className="font-serif text-ivory text-xl md:text-2xl font-light hover:text-ivory/70 transition-colors duration-500 block mb-3">
                 contact@earthproject.in
               </a>
-              <a href="tel:+919999999999"
-                className="font-serif text-stone-grey text-base font-light hover:text-ivory transition-colors duration-500 block mb-8">
-                +91 99999 99999
-              </a>
               <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-4">REGISTERED ADDRESS</p>
               <address className="not-italic font-serif text-stone-grey text-sm font-light leading-relaxed">
                 M/S. The Earth Project<br />
