@@ -16,9 +16,13 @@ export default function Footer() {
         </p>
 
         {/* Right */}
-        <div className="flex flex-col gap-1 text-right">
-          <p className="text-whisper text-stone text-[0.5rem]">© 2024 THE EARTH PROJECT</p>
-          <p className="text-whisper text-stone text-[0.5rem]">ALL CHAPTERS RESERVED</p>
+        <div className="flex flex-col gap-1 md:text-right">
+          <p className="text-whisper text-stone text-[0.5rem] leading-relaxed">
+            M/S. The Earth Project, Plot No 432, KYR Heights, 1st Floor<br />
+            Road No 7, Vivekananda Nagar, Hitech City Road<br />
+            Hyderabad — 500018, Telangana, India
+          </p>
+          <p className="text-whisper text-stone text-[0.5rem] mt-2">© 2025 THE EARTH PROJECT — ALL CHAPTERS RESERVED</p>
         </div>
       </div>
 

@@ -284,9 +284,18 @@ export default function ContactPage() {
                 Tepindiaofficial@gmail.com
               </a>
               <a href="tel:+919999999999"
-                className="font-serif text-stone-grey text-base font-light hover:text-ivory transition-colors duration-500 block">
+                className="font-serif text-stone-grey text-base font-light hover:text-ivory transition-colors duration-500 block mb-8">
                 +91 99999 99999
               </a>
+              <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-4">REGISTERED ADDRESS</p>
+              <address className="not-italic font-serif text-stone-grey text-sm font-light leading-relaxed">
+                M/S. The Earth Project<br />
+                Plot No 432, KYR Heights, 1st Floor<br />
+                Road No 7, Vivekananda Nagar<br />
+                Hitech City Road<br />
+                Hyderabad — 500018<br />
+                Telangana, India
+              </address>
             </div>
 
             <div>
