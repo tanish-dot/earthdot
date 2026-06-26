@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { trackEvent, trackConversion, CONVERSIONS } from '../lib/analytics'
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1aAxdE99X-G0K4yeVVENWHNnF8J64dfZUsMFxcu7WpyB6sq68QFzgI97HjTGVo0hE/exec'
 
@@ -80,6 +81,9 @@ export default function ContactPage() {
           message: form.message,
         }),
       })
+      // Conversion: contact enquiry submitted
+      trackConversion(CONVERSIONS.leadForm)
+      trackEvent('contact_submit', { chapter: form.chapter, type: form.type })
       setStatus('success')
     } catch {
       setStatus('error')

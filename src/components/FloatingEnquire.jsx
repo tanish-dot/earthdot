@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { trackEvent } from '../lib/analytics'
 
 export default function FloatingEnquire() {
   const location = useLocation()
@@ -22,6 +23,7 @@ export default function FloatingEnquire() {
             href="https://wa.me/919000102744"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent('whatsapp_click', { location: 'floating_button' })}
             className="flex items-center justify-center w-11 h-11 md:w-12 md:h-12 bg-[#25D366] text-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_30px_rgba(37,211,102,0.3)] transition-all duration-500 hover:scale-105"
             aria-label="Chat on WhatsApp"
           >

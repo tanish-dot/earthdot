@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { trackEvent, trackConversion, CONVERSIONS } from '../lib/analytics'
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1aAxdE99X-G0K4yeVVENWHNnF8J64dfZUsMFxcu7WpyB6sq68QFzgI97HjTGVo0hE/exec'
 
@@ -27,6 +28,9 @@ export default function BrochureModal({ isOpen, onClose, brochureFile, brochureL
     } catch {
       // no-cors mode won't throw on network success
     }
+    // Conversion: brochure lead captured
+    trackConversion(CONVERSIONS.leadForm)
+    trackEvent('brochure_lead', { brochure: brochureLabel })
     setStatus('done')
     // Trigger download
     const a = document.createElement('a')
