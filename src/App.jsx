@@ -18,6 +18,7 @@ import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import Particles from './components/Particles'
 import FloatingEnquire from './components/FloatingEnquire'
+import { trackPageView } from './lib/analytics'
 const HummingGrovePage = lazy(() => import('./pages/HummingGrovePage'))
 const SoulSpringsPage = lazy(() => import('./pages/SoulSpringsPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
@@ -107,6 +108,7 @@ export default function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    trackPageView() // GA4 pageview on every SPA route change
   }, [location.pathname])
 
   return (

@@ -6,6 +6,19 @@
 // Google Ads conversion ID + labels (from Google Ads → Goals → Conversions).
 export const ADS_ID = 'AW-18265475348'
 
+// Google Analytics 4 Measurement ID (Analytics → Admin → Data streams).
+export const GA_ID = 'G-RCHSQHB2ST'
+
+// Send a GA4 page_view. Called on every route change because this is an SPA —
+// gtag's automatic page_view (disabled in index.html) only fires on first load.
+export function trackPageView() {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return
+  window.gtag('event', 'page_view', {
+    page_location: window.location.href,
+    page_title: document.title,
+  })
+}
+
 export const CONVERSIONS = {
   // "Submit lead form" — used for both the brochure download and contact forms.
   leadForm: 'AW-18265475348/niHsCKelxsUcEJSS1IVE',
