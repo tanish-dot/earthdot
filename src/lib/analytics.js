@@ -30,6 +30,13 @@ export function trackConversion(sendTo, params = {}) {
   window.gtag('event', 'conversion', { send_to: sendTo, ...params })
 }
 
+// Fire a GA4 event (scoped to the Analytics property only, not Ads).
+// Mark these as Key events in GA4 → Admin → Events to count them as conversions.
+export function trackGA4Event(name, params = {}) {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return
+  window.gtag('event', name, { send_to: GA_ID, ...params })
+}
+
 // Generic dataLayer push — kept for non-conversion signals (e.g. WhatsApp clicks)
 // that don't yet have a dedicated Google Ads conversion label.
 export function trackEvent(event, params = {}) {

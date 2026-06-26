@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { trackEvent, trackConversion, CONVERSIONS } from '../lib/analytics'
+import { trackEvent, trackConversion, trackGA4Event, CONVERSIONS } from '../lib/analytics'
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1aAxdE99X-G0K4yeVVENWHNnF8J64dfZUsMFxcu7WpyB6sq68QFzgI97HjTGVo0hE/exec'
 
@@ -30,6 +30,7 @@ export default function BrochureModal({ isOpen, onClose, brochureFile, brochureL
     }
     // Conversion: brochure lead captured
     trackConversion(CONVERSIONS.leadForm)
+    trackGA4Event('generate_lead', { form: 'brochure', brochure: brochureLabel })
     trackEvent('brochure_lead', { brochure: brochureLabel })
     setStatus('done')
     // Trigger download
