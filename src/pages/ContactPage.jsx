@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { trackEvent, trackConversion, trackGA4Event, CONVERSIONS } from '../lib/analytics'
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzVWF2eVPTR2FDmMIezA9HSIsEzzINjhaMEAbpTMCJtG3jFoYmzD6uyaCwKq-bJeYxT/exec'
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxSs0nSAJ2_MsQmr85gro0I5IU0AF5VeuHmsmwRZv6ouCUX-B2S7cchThqLpP3WyDpm/exec'
 
 // ── Data sourced from the chapters ──────────────────────────────────────────
 const chapters = [
