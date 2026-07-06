@@ -68,18 +68,18 @@ export default function ContactPage() {
     e.preventDefault()
     setStatus('sending')
     try {
+      const params = new URLSearchParams({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        chapter: form.chapter,
+        type: form.type,
+        message: form.message,
+      })
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          phone: form.phone,
-          chapter: form.chapter,
-          type: form.type,
-          message: form.message,
-        }),
+        body: params,
       })
       // Conversion: contact enquiry submitted
       trackConversion(CONVERSIONS.leadForm)
