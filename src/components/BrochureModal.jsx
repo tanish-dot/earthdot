@@ -17,12 +17,13 @@ export default function BrochureModal({ isOpen, onClose, brochureFile, brochureL
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({
+        body: new URLSearchParams({
           name,
           phone,
-          source: 'brochure_download',
-          brochure: brochureLabel,
+          email: '',
+          chapter: '',
+          type: 'Brochure Download',
+          message: `Brochure: ${brochureLabel}`,
         }),
       })
     } catch {
