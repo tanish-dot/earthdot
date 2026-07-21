@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { trackEvent, trackConversion, trackGA4Event, CONVERSIONS } from '../lib/analytics'
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1aAxdE99X-G0K4yeVVENWHNnF8J64dfZUsMFxcu7WpyB6sq68QFzgI97HjTGVo0hE/exec'
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWC3wrKmCrRHFRMiQx2fI2Q4GhcD-KYAxrWbNFTYO56Lr-9cXji2Ddt8REWyDsAdE/exec'
 
 export default function BrochureModal({ isOpen, onClose, brochureFile, brochureLabel }) {
   const [phone, setPhone] = useState('')
