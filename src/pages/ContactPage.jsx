@@ -288,6 +288,10 @@ export default function ContactPage() {
                 className="font-serif text-ivory text-xl md:text-2xl font-light hover:text-ivory/70 transition-colors duration-500 block mb-3">
                 contact@earthproject.in
               </a>
+              <a href="tel:+918712265337"
+                className="font-serif text-ivory text-xl md:text-2xl font-light hover:text-ivory/70 transition-colors duration-500 block mb-6">
+                +91 87122 65337
+              </a>
               <p className="text-whisper text-stone-grey text-[0.55rem] tracking-ultra mb-4">REGISTERED ADDRESS</p>
               <address className="not-italic font-serif text-stone-grey text-sm font-light leading-relaxed">
                 M/S. The Earth Project<br />
