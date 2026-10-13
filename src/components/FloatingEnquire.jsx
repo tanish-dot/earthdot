@@ -20,7 +20,7 @@ export default function FloatingEnquire() {
         >
           {/* WhatsApp button */}
           <a
-            href="https://wa.me/919000102744"
+            href="https://wa.me/918712265337"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('whatsapp_click', { location: 'floating_button' })}

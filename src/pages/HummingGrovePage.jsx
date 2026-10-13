@@ -366,7 +366,7 @@ export default function HummingGrovePage() {
               className="font-serif text-ivory text-2xl md:text-3xl font-light hover:text-ivory-dim transition-colors duration-500">
               contact@earthproject.in
             </a>
-            <a href="https://wa.me/919000102744" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/918712265337" target="_blank" rel="noopener noreferrer"
               onClick={() => trackEvent('whatsapp_click', { location: 'humming_grove' })}
               className="flex items-center gap-3 text-whisper text-ivory/70 hover:text-ivory text-[0.6rem] tracking-ultra transition-colors duration-500 group">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-forest-glow flex-shrink-0">
